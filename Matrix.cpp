@@ -7,26 +7,25 @@ const static int row = 10;
 const static int column = 10;
 
 Matrix::Matrix(){
-	allocArray();
-	for(int i = 0; i < row; i++)
-	{
-		for(int j = 0; j < column; j++)
-		{
-			data[i][j] = 0;
-		}
-	}
+	data = new int*[row];
+    for (int x=0; x<rows; x++){
+        data[x] = new int[column];
+    }
+    for(int i=0; i < row; i++){
+        for(int j = 0; j < column; j++){
+            data[i][j] = 0;
+        }
+    }
 }
 
-Matrix::~Matrix
-
-/* Matrix::~Matrix(){
-    cout << "Destructor"; 
+Matrix::~Matrix(){ 
 	for(int i = 0; i < row; i++)
 	{
 		delete [] data[i];
 	}
 	delete [] data;
-}*/
+    cout << "Destructed" << endl; 
+}
 
 static int getRow(){
     return row;
