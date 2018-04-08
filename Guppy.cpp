@@ -4,13 +4,14 @@
 using namespace std;
 
 const int coin_time = 5;
+const int grow_time = 2;
 const int value_guppy = 100;  
 const int value_coin = 10;
-
 
 /*Sekawan*/
 Guppy::Guppy(Point _p) : Fish("guppy", value_guppy, _p) {
     phase = 1;
+    food_count = 0;
 }
 
 /*Getter*/
@@ -99,8 +100,23 @@ Coin Guppy::dropCoin() {
 
 void Guppy::eat() {
     hungry = false;
+    food_count++;
+    
+    if (food_count == grow_time * phase && phase != 3) {
+        phase++;
+        food_count = 0;
+    }
 }
 
 void show() {
 
+}
+
+int Guppy::getFood_Count() const {
+    return food_count;
+}
+
+
+void Guppy::setFood_Count(int _f) {
+    food_count = _f;
 }
