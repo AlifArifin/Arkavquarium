@@ -1,6 +1,7 @@
 #ifndef POINT_HPP
 #define POINT_HPP
 #include <iostream>
+#include "Matrix.hpp"
 
 using namespace std;
 
@@ -20,8 +21,10 @@ class Point {
         /*Method*/
         Point& operator+(const Point&); //menambah this->point dengan point pada parameter
         double distanceTo(const Point&); //Menghitung jarak this-> point dengan point pada parameter
-        bool isInRange(const Point&); //untuk mengecek apakah summonable terdapat dalam range atau tidak
-        bool isBottom(const Point&); //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
+        bool isBottom(const Matrix&); //untuk mengecek apakah summonable terdapat di bawah aquarium
+        bool isTop(const Matrix&); //untuk mengecek apakah summonable terdapat di atas aquarium
+        bool isRight(const Matrix&); //untuk mengecek apakah summonable terdapat di kanan aquarium
+        bool isLeft(const Matrix&); //untuk mengecek apakah summonable terdapat di kiri aquarium
         double patan2(const Point&);
 
     private:
