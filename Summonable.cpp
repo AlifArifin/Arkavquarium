@@ -47,9 +47,4 @@ void Summonable::setPosition(const Point& p){
 void Summonable::setDirection(int direction){
     this->direction = direction;
 }
-
-static void Summmonable::setId(int id){
-    this->id = id;
-}
-
     

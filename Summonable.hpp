@@ -22,7 +22,6 @@ class Summonable {
         /*Setter*/
         void setPosition(const Point&);
         void setDirection(int);
-        static void setId(int);
 
         /*Method*/
         virtual void move() = 0; //untuk pergerakkan summonable      
