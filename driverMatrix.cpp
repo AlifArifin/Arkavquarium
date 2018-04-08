@@ -4,13 +4,14 @@
 using namespace std;
 
 int main(){
-    Matrix M;
+    Matrix mat;
 
-    for(int i = 0; i < M.getRow(); i++){
-        for(int j = 0; j < M.getColumn(); j++){
-            int x = M.getVal(i, j);
-            cout << x << endl;
+    for(int i = 0; i < mat.getRow(); i++){
+        for(int j = 0; j < mat.getColumn(); j++){
+            int x = mat.getVal(i, j);
+            cout << x;
         }
+        cout << endl;
     }
 
     cout << "Tes" << endl;

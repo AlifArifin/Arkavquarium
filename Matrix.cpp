@@ -3,15 +3,15 @@
 
 using namespace std;
 
-const static int row = 10;
-const static int column = 10;
+const int Matrix::row = 10;
+const int Matrix::column = 10;
 
 Matrix::Matrix(){
 	data = new int*[row];
-    for (int x=0; x<rows; x++){
+    for (int x = 0; x < row; x++){
         data[x] = new int[column];
     }
-    for(int i=0; i < row; i++){
+    for(int i = 0; i < row; i++){
         for(int j = 0; j < column; j++){
             data[i][j] = 0;
         }
@@ -27,11 +27,11 @@ Matrix::~Matrix(){
     cout << "Destructed" << endl; 
 }
 
-static int getRow(){
+int Matrix::getRow(){
     return row;
 }
 
-static int getColumn(){
+int Matrix::getColumn(){
     return column;
 }
 
