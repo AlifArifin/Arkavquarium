@@ -7,6 +7,7 @@
 #include "Coin.hpp"
 #include "Food.hpp"
 #include "ListObj.hpp"
+#include "Matrix.hpp"
 #include <iostream>
 
 using namespace std;
@@ -22,8 +23,7 @@ class Aquarium {
         ListObj<Food> getList_Food() const;
         ListObj<Snail> getList_Snail() const;
         ListObj<Coin> getList_Coin() const;
-        static int getLength_Display();
-        static int getWidth_Display();
+        Matrix getAquarium_Matrix() const;
 
         /*Setter*/
         void setList_Guppy(ListObj<Guppy>&);
@@ -31,6 +31,7 @@ class Aquarium {
         void setList_Food(ListObj<Food>&);
         void setList_Snail(ListObj<Snail>&);
         void setList_Coin(ListObj<Coin>&);
+        //void setAquarium_Matrix(Matrix&)''
 
         /*Method*/
         void add(const Guppy&); //menambahkan Guppy ke dalam aquarium
@@ -54,8 +55,7 @@ class Aquarium {
         ListObj<Snail> list_snail; //list menyimpan Snail yang ada di dalam aquarium
         ListObj<Coin> list_coin; //list menyimpan Coin yang ada di dalam aquarium
         ListObj<Food> list_food; //list menyimpan Food yang ada di dalam aquarium
-        static const int length_display; //mencatat panjang display
-        static const int width_display; //mencatat lebar display
+        Matrix aquarium_matrix; //Matriks aquarium;
 };
 
 #endif
