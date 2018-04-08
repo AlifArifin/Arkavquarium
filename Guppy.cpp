@@ -28,20 +28,21 @@ void Guppy::setPhase(int _p) {
 }
 
 /*Method*/
-void Guppy::move(ListObj<Food> _l) {
+Food Guppy::move(ListObj<Food> _l) {
     if (count_move == hunger_time) {
         hungry = true;
+        count_move = 0;
+    } else if (count_move == change_move) {
+        count_move = 0;
+        setChange_Move();
     }
 
     if (hungry) {
         
     } else {
-        if (count_move == change_move) {
-            setChange_Move();
-            count_move = 0;
-        } else {
-            count_move++;
-        }
+        count_move++;
+
+        return NULL;
     }
 }   
 
