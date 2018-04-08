@@ -18,7 +18,7 @@ class Piranha : public Fish{
         /*Setter*/
         
         /*Method*/
-        Guppy move(ListObj<Guppy>); //untuk pergerakkan Piranha    
+        Guppy move(const ListObj<Guppy>&, const Matrix&); //untuk pergerakkan Piranha    
         void eat(); //untuk dan makan menghasilkan koin
         Coin dropCoin(const Guppy&); //untuk menghasilkan koin      
         void show(); //untuk display piranha

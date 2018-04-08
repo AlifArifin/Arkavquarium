@@ -43,21 +43,25 @@ double Point::distanceTo(const Point& p){
 }
 
 bool Point::isBottom(const Matrix& m) {
+    return x == m.getRow() -1;
+}
+
+bool Point::isOutBottom(const Matrix& m) {
     //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
     return x > m.getRow()-1; 
 }
 
-bool Point::isTop(const Matrix& m){
+bool Point::isOutTop(const Matrix& m){
     //untuk mengecek apakah summonable terdapat di atas aquarium
     return x < 0;
 }
 
-bool Point::isRight(const Matrix& m){ 
+bool Point::isOutRight(const Matrix& m){ 
     //untuk mengecek apakah summonable terdapat di kanan aquarium
     return y > m.getColumn()-1;
 }
 
-bool Point::isLeft(const Matrix& m){
+bool Point::isOutLeft(const Matrix& m){
     //untuk mengecek apakah summonable terdapat di kiri aquarium
     return y < 0;
 }       

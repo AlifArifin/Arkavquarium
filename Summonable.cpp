@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Point.hpp"
 #include "Summonable.hpp"
+#include "Matrix.hpp"
 
 using namespace std;
 

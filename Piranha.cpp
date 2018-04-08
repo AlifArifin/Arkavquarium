@@ -10,7 +10,7 @@ const int Piranha::value_piranha = 100;
 Piranha::Piranha() : Fish("piranha", value_piranha) {
 }
 
-Guppy Piranha::move(ListObj<Guppy> _l) {
+Guppy Piranha::move(const ListObj<Guppy>& _l, const Matrix& m) {
     if (count_move == hunger_time) {
         hungry = true;
         count_move = 0;
@@ -37,16 +37,29 @@ Guppy Piranha::move(ListObj<Guppy> _l) {
                 return g;
             } else {
                 double a = position.patan2(g.position);
-                int xnew = int(floor(position.getX() + speed_fish * cos(a));
-                int ynew = int(floor(position.getX() + speed_fish * sin(a));
+                position.setX(int(floor(position.getX() + speed_fish * cos(a))));
+                position.setY(int(floor(position.getX() + speed_fish * sin(a))));
+
                 return NULL;
             }
         }
     } else {
         count_move++;
 
-        int xnew = int(floor(position.getX() + speed_fish * cos(direction));
-        int ynew = int(floor(position.getX() + speed_fish * sin(direction));
+        position.setX(int(floor(position.getX() + speed_fish * cos(direction))));
+        position.setY(int(floor(position.getX() + speed_fish * sin(direction))));
+
+        if (position.isLeft()) {
+            position.setY
+        } else if (position.isRight()) {
+
+        }
+        
+        if (position.isTop()) {
+        
+        } else if (position.isBottom() {
+
+        }
 
         return NULL;
     }
