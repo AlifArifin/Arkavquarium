@@ -8,6 +8,7 @@
 #include "Food.hpp"
 #include "ListObj.hpp"
 #include "Matrix.hpp"
+#include "Account.hpp"
 #include <iostream>
 
 using namespace std;
@@ -47,8 +48,6 @@ class Aquarium {
         void showAll(); //menampilkan semua summonable yang ada pada aquarium
         void moveAll(); //menggerakkan semua summonable yang ada pada aquarium
 
-        
-
     private:
         ListObj<Guppy> list_guppy; //list menyimpan Guppy yang ada di dalam aquarium
         ListObj<Piranha> list_piranha; //list menyimpan Piranha yang ada di dalam aquarium
@@ -56,6 +55,7 @@ class Aquarium {
         ListObj<Coin> list_coin; //list menyimpan Coin yang ada di dalam aquarium
         ListObj<Food> list_food; //list menyimpan Food yang ada di dalam aquarium
         Matrix aquarium_matrix; //Matriks aquarium;
+        Account player;
 };
 
 #endif
