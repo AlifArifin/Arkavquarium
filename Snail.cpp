@@ -4,17 +4,20 @@
 
 using namespace std;
 
+static const int speed_snail = 10;
+
 /*Sekawan*/
-Snail::Snail();
+Snail::Snail(Point p) : Summonable("snail", speed_snail, p){ 
+}
 
-        /*Getter*/
-        static int getSpeed_Snail();
+/*Getter*/
+static int getSpeed_Snail(){
+    return speed_snail;
+}
 
-        /*Setter*/
+/*Setter*/
 
-        /*Method*/
-        void move(); //untuk pergerakan snail
-        void show(); //untuk display snail
+/*Method*/
+void move(); //untuk pergerakan snail
+void show(); //untuk display snail
 
-    private:
-        static const int speed_snail; //mencatat kecepatan untuk Snail

@@ -40,3 +40,10 @@ double Point::distanceTo(const Point& p){
     //Menghitung jarak this-> point dengan point pada parameter
     return sqrt((p.x  - this.x) * (p.x  - this.x) + (p.y  -  this.y) * (p.y  -  this.y));
 }
+
+bool isInRange(){
+    //untuk mengecek apakah summonable terdapat dalam range atau tidak
+    return 
+}
+
+bool isBottom(); //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
