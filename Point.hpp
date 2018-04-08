@@ -20,8 +20,9 @@ class Point {
         /*Method*/
         Point& operator+(const Point&); //menambah this->point dengan point pada parameter
         double distanceTo(const Point&); //Menghitung jarak this-> point dengan point pada parameter
-        bool isInRange(Point&); //untuk mengecek apakah summonable terdapat dalam range atau tidak
-        bool isBottom(Point&); //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
+        bool isInRange(const Point&); //untuk mengecek apakah summonable terdapat dalam range atau tidak
+        bool isBottom(const Point&); //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
+        double patan2(const Point&);
 
     private:
         int x, y;
