@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Summonable.hpp"
 #include "Snail.hpp"
+#include "Matrix.hpp"
 
 using namespace std;
 
@@ -18,6 +19,8 @@ static int getSpeed_Snail(){
 /*Setter*/
 
 /*Method*/
-void move(); //untuk pergerakan snail
+void move(){
+    //untuk pergerakan snail
+}
 void show(); //untuk display snail
 
