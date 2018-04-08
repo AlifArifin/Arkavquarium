@@ -7,11 +7,12 @@ using namespace std;
 
 class Matrix{
     public:
-        Matrix(int row, int column);
+        Matrix();
         ~Matrix();
         static int getRow();
         static int getColumn();
         void setVal(int m, int n, int val);
+        int getVal(int m, int n);
 
     private:
         const static int row;

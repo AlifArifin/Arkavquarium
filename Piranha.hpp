@@ -5,6 +5,7 @@
 #include "Fish.hpp"
 #include "Coin.hpp"
 #include "Guppy.hpp"
+#include "ListObj.hpp"
 using namespace std;
 
 class Piranha : public Fish{
@@ -17,7 +18,7 @@ class Piranha : public Fish{
         /*Setter*/
         
         /*Method*/
-        void move(); //untuk pergerakkan Piranha    
+        Guppy move(ListObj<Guppy>); //untuk pergerakkan Piranha    
         void eat(); //untuk dan makan menghasilkan koin
         Coin dropCoin(const Guppy&); //untuk menghasilkan koin      
         void show(); //untuk display piranha

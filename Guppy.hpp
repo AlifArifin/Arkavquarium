@@ -20,7 +20,7 @@ class Guppy : public Fish{
         void setPhase(int);
         
         /*Method*/
-        void move(ListObj<Food>); //untuk pergerakkan Guppy    
+        Food move(ListObj<Food>); //untuk pergerakkan Guppy    
         Coin dropCoin(); //untuk menghasilkan koin
         void eat(); //untuk makan
         void show(); //untuk display guppy

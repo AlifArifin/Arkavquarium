@@ -8,12 +8,21 @@ static const int value_piranha = 100;
 Piranha::Piranha() : Fish("piranha", value_piranha) {
 }
 
-void Piranha::move() {
-    if (count_move == change_move) {
-        setChange_Move();
+Guppy Piranha::move(ListObj<Guppy> _l) {
+    if (count_move == hunger_time) {
+        hungry = true;
         count_move = 0;
+    } else if (count_move == change_move) {
+        count_move = 0;
+        setChange_Move();
+    }
+
+    if (hungry) {
+
     } else {
         count_move++;
+
+        return NULL;
     }
 }    
 
