@@ -2,6 +2,7 @@
 #include <time.h>
 #include <cstdlib>
 #include "Fish.hpp"
+#include "Summonable.hpp"
 
 using namespace std;
 
@@ -9,7 +10,7 @@ const static int hunger_time = 10;
 const static int dead_time = 20;
 const static int speed_fish = 8;
 
-Fish::Fish(string _j, int _v) : Summonable(_j, speed_fish), value(_v) {
+Fish::Fish(string _j, int _v, Point _p) : Summonable(_j, speed_fish, _p), value(_v) {
     hungry = false;
     food_count = 0;
     count_move = 0;
