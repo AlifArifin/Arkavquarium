@@ -5,14 +5,14 @@
 using namespace std;
 
 /*Sekawan*/
-Summonable::Summonable(int id, string jenis, int speed, Point position){    
+Summonable::Summonable(string jenis, int speed, Point position){    
     //menerima id, jenis, speed, dan lokasi spawn
-    this->id = id;
+    id_count ++;
+    id = id_count;
     this->jenis = jenis;
     this->speed = speed;
     this->position = position;
-    direction = 0;        
-    id_count ++; 
+    direction = 0;         
 }
 
 /*Destructor*/
