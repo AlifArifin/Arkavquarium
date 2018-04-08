@@ -1,10 +1,11 @@
 #include "Piranha.hpp"
 #include "ListObj.hpp"
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-static const int value_piranha = 100;
+const int Piranha::value_piranha = 100;
 
 Piranha::Piranha() : Fish("piranha", value_piranha) {
 }
@@ -30,16 +31,22 @@ Guppy Piranha::move(ListObj<Guppy> _l) {
                 }
             }
 
+            Guppy g = _l.get(idx_food);
             if (closest_food <= speed_fish) {
-                Guppy g = _l.get(idx_food);
                 position = g.getPosition();
                 return g;
             } else {
-                
+                double a = position.patan2(g.position);
+                int xnew = int(floor(position.getX() + speed_fish * cos(a));
+                int ynew = int(floor(position.getX() + speed_fish * sin(a));
+                return NULL;
             }
         }
     } else {
         count_move++;
+
+        int xnew = int(floor(position.getX() + speed_fish * cos(direction));
+        int ynew = int(floor(position.getX() + speed_fish * sin(direction));
 
         return NULL;
     }

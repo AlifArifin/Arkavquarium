@@ -6,9 +6,9 @@
 
 using namespace std;
 
-const static int hunger_time = 10;
-const static int dead_time = 20;
-const static int speed_fish = 8;
+const int hunger_time = 10;
+const int dead_time = 20;
+const int speed_fish = 8;
 
 Fish::Fish(string _j, int _v, Point _p) : Summonable(_j, speed_fish, _p), value(_v) {
     hungry = false;
@@ -29,11 +29,11 @@ int Fish::getFood_Count() const {
     return food_count;
 }
 
-static int getHunger_Time() {
+int Fish::getHunger_Time() {
     return hunger_time;
 }
 
-static int getDead_Time() {
+int Fish::getDead_Time() {
     return dead_time;
 } 
 
@@ -45,7 +45,7 @@ int Fish::getChange_Move() const {
     return change_move;
 }
 
-static int getSpeed_Fish() {
+int Fish::getSpeed_Fish() {
     return speed_fish;
 }
 

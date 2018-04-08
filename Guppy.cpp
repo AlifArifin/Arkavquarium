@@ -3,9 +3,9 @@
 
 using namespace std;
 
-const static int coin_time = 5;
-const static int value_guppy = 100;  
-const static int value_coin = 10;
+const int coin_time = 5;
+const int value_guppy = 100;  
+const int value_coin = 10;
 
 
 /*Sekawan*/
