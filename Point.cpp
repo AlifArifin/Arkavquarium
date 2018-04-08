@@ -46,4 +46,10 @@ bool isInRange(){
     return 
 }
 
-bool isBottom(); //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
+bool isBottom() {
+
+} //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
+
+double Point::patan2(const Point& p) {
+    return atan2(p.y - y, p.x - x); 
+}
