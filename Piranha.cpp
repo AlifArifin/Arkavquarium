@@ -2,6 +2,7 @@
 #include "ListObj.hpp"
 #include <iostream>
 #include <cmath>
+#include "time.h"
 
 using namespace std;
 
@@ -49,16 +50,24 @@ Guppy Piranha::move(const ListObj<Guppy>& _l, const Matrix& m) {
         position.setX(int(floor(position.getX() + speed_fish * cos(direction))));
         position.setY(int(floor(position.getX() + speed_fish * sin(direction))));
 
-        if (position.isLeft()) {
-            position.setY
-        } else if (position.isRight()) {
-
+        if (position.isOutLeft()) {
+            position.setY(0);
+            count_move = 0;
+            direction = rand() % M_PI - (M_PI/2);
+        } else if (position.isOutRight()) {
+            position.setY(m.getColumn() - 1);
+            count_move = 0;
+            direction = rand() % M_PI + (M_PI/2);
         }
         
-        if (position.isTop()) {
-        
-        } else if (position.isBottom() {
-
+        if (position.isOutTop()) {
+            position.setX(0);
+            count_move = 0;
+            direction = rand() % M_PI + M_PI;
+        } else if (position.isOutBottom() {
+            position.setX(m.getRow() - 1);
+            count_move = 0;
+            direction = rand() % M_PI;
         }
 
         return NULL;
