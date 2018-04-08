@@ -8,7 +8,7 @@ const static int column = 10;
 
 Matrix::Matrix(){
 	data = new int*[row];
-    for (int x=0; x<rows; x++){
+    for (int x=0; x<row ; x++){
         data[x] = new int[column];
     }
     for(int i=0; i < row; i++){
