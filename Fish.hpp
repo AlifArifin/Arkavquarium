@@ -15,7 +15,6 @@ class Fish : public Summonable{
         
         /*Getter*/
         bool getHungry() const;
-        int getFood_Count() const;
         static int getHunger_Time();
         static int getDead_Time(); 
         int getCount_Move() const;
@@ -25,7 +24,6 @@ class Fish : public Summonable{
 
         /*Setter*/
         void setHungry(bool);
-        void setFood_Count(int);
         void setCount_Move(int);
         void setChange_Move(); //dilakukan secara random
         
@@ -35,7 +33,6 @@ class Fish : public Summonable{
 
     protected:
         bool hungry; //status kelaparan Fish
-        int food_count; //menghitung banyaknya makanan yang telah dimakan
         const static int hunger_time; //periode Fish lapar
         const static int dead_time; //waktu yang dibutuhkan 
         int count_move; //untuk keperluan hunger_time dan dead_time dan coin (khusus guppy)

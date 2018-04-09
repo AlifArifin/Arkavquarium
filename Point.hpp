@@ -22,9 +22,10 @@ class Point {
         Point& operator+(const Point&); //menambah this->point dengan point pada parameter
         double distanceTo(const Point&); //Menghitung jarak this-> point dengan point pada parameter
         bool isBottom(const Matrix&); //untuk mengecek apakah summonable terdapat di bawah aquarium
-        bool isTop(const Matrix&); //untuk mengecek apakah summonable terdapat di atas aquarium
-        bool isRight(const Matrix&); //untuk mengecek apakah summonable terdapat di kanan aquarium
-        bool isLeft(const Matrix&); //untuk mengecek apakah summonable terdapat di kiri aquarium
+        bool isOutBottom(const Matrix&); //untuk mengecek apakah summonable terdapat di bawah aquarium
+        bool isOutTop(const Matrix&); //untuk mengecek apakah summonable terdapat di atas aquarium
+        bool isOutRight(const Matrix&); //untuk mengecek apakah summonable terdapat di kanan aquarium
+        bool isOutLeft(const Matrix&); //untuk mengecek apakah summonable terdapat di kiri aquarium
         double patan2(const Point&);
 
     private:

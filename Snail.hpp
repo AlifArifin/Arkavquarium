@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Summonable.hpp"
+#include "Matrix.hpp"
 
 using namespace std;
 

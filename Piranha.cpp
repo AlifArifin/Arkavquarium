@@ -2,6 +2,7 @@
 #include "ListObj.hpp"
 #include <iostream>
 #include <cmath>
+#include "time.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ const int Piranha::value_piranha = 100;
 Piranha::Piranha() : Fish("piranha", value_piranha) {
 }
 
-Guppy Piranha::move(ListObj<Guppy> _l) {
+Guppy Piranha::move(const ListObj<Guppy>& _l, const Matrix& m) {
     if (count_move == hunger_time) {
         hungry = true;
         count_move = 0;
@@ -37,16 +38,37 @@ Guppy Piranha::move(ListObj<Guppy> _l) {
                 return g;
             } else {
                 double a = position.patan2(g.position);
-                int xnew = int(floor(position.getX() + speed_fish * cos(a));
-                int ynew = int(floor(position.getX() + speed_fish * sin(a));
+                position.setX(int(floor(position.getX() + speed_fish * cos(a))));
+                position.setY(int(floor(position.getX() + speed_fish * sin(a))));
+
                 return NULL;
             }
         }
     } else {
         count_move++;
 
-        int xnew = int(floor(position.getX() + speed_fish * cos(direction));
-        int ynew = int(floor(position.getX() + speed_fish * sin(direction));
+        position.setX(int(floor(position.getX() + speed_fish * cos(direction))));
+        position.setY(int(floor(position.getX() + speed_fish * sin(direction))));
+
+        if (position.isOutLeft()) {
+            position.setY(0);
+            count_move = 0;
+            direction = rand() % M_PI - (M_PI/2);
+        } else if (position.isOutRight()) {
+            position.setY(m.getColumn() - 1);
+            count_move = 0;
+            direction = rand() % M_PI + (M_PI/2);
+        }
+        
+        if (position.isOutTop()) {
+            position.setX(0);
+            count_move = 0;
+            direction = rand() % M_PI + M_PI;
+        } else if (position.isOutBottom() {
+            position.setX(m.getRow() - 1);
+            count_move = 0;
+            direction = rand() % M_PI;
+        }
 
         return NULL;
     }

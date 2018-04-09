@@ -12,7 +12,6 @@ const int speed_fish = 8;
 
 Fish::Fish(string _j, int _v, Point _p) : Summonable(_j, speed_fish, _p), value(_v) {
     hungry = false;
-    food_count = 0;
     count_move = 0;
     setChange_Move();
 }
@@ -25,9 +24,7 @@ Fish::~Fish() {
 bool Fish::getHungry() const {
     return hungry;
 }
-int Fish::getFood_Count() const {
-    return food_count;
-}
+
 
 int Fish::getHunger_Time() {
     return hunger_time;
@@ -54,9 +51,6 @@ void Fish::setHungry(bool _h) {
     hungry = _h;
 }
 
-void Fish::setFood_Count(int _f) {
-    food_count = _f;
-}
 
 void Fish::setCount_Move(int _c) {
     count_move = _c;
