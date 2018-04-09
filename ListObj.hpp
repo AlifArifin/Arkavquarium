@@ -14,7 +14,7 @@ class ListObj{
                 /*Sekawan*/
                 Obj(T1 o) {
                     info = o;
-                    next = NULL;
+                    next = nullptr;
                 }
 
                 /*Getter*/
@@ -46,31 +46,31 @@ class ListObj{
     public:
         /*Sekawan*/
         ListObj() {
-            first = NULL;
-            last = NULL;
+            first = nullptr;
+            last = nullptr;
         }
 
         ~ListObj() {
             Obj<T>* current = first;
-            while (current != NULL) {
+            while (current != nullptr) {
                 Obj<T>* nextPtr = current->next;
                 delete current;
                 current = nextPtr;
             }
-            first = NULL;
-            last = NULL;
+            first = nullptr;
+            last = nullptr;
         }
 
         ListObj(const ListObj& L) {
-            if (L.first == NULL) {
-                first = NULL;
-                last = NULL;
+            if (L.first == nullptr) {
+                first = nullptr;
+                last = nullptr;
             } else {
                 first = new Obj<T>(L.first->info);
                 Obj<T> *current = first;
                 Obj<T> *firstElmt = L.first;
                 Obj<T> *currentList = firstElmt;
-                while (currentList->next != NULL) {
+                while (currentList->next != nullptr) {
                     current->next = new Obj<T>(currentList->next->info);
                     currentList = currentList -> next;
                     current = current -> next;
@@ -83,24 +83,24 @@ class ListObj{
             ListObj& copyL (*this);
             //delete this list
             Obj<T>* current = first;
-            while (current != NULL) {
+            while (current != nullptr) {
                 Obj<T>* nextPtr = current-> next;
                 delete current;
                 current = nextPtr;
             }
-            first = NULL;
-            last = NULL;
+            first = nullptr;
+            last = nullptr;
 
             //create new list
-            if (L.first == NULL) {
-                first = NULL;
-                last = NULL;
+            if (L.first == nullptr) {
+                first = nullptr;
+                last = nullptr;
             } else {
                 first = new Obj<T>(L.first->info);
                 Obj<T> *current = first;
                 Obj<T> *firstElmt = L.first;
                 Obj<T> *currentList = firstElmt;
-                while (currentList->next != NULL) {
+                while (currentList->next != nullptr) {
                     current->next = new Obj<T>(currentList->next->info);
                     currentList = currentList -> next;
                     current = current -> next;
@@ -132,7 +132,7 @@ class ListObj{
 
             Obj<T> *current = new Obj<T>;
             current = first;
-            while (current != NULL && !found) {
+            while (current != nullptr && !found) {
                 if (current->info == _obj) {
                     found = true;
                 } else {
@@ -141,7 +141,7 @@ class ListObj{
                 }
             }
             //current = Last Element of not found
-            if (current == NULL) {
+            if (current == nullptr) {
                 return -1;
             } else {
                 return idx;
@@ -150,17 +150,17 @@ class ListObj{
 
         //mengembalikan nilai True jika linked list kosong
         bool isEmpty() const {
-            return first == NULL;
+            return first == nullptr;
         } 
         
         // menambahkan elemen sebagai T paling belakang pada linked list
         void add(T _obj) {
             Obj<T> *temp = new Obj<T>(_obj);
-            temp -> next = NULL;
-            if (first == NULL) {
+            temp -> next = nullptr;
+            if (first == nullptr) {
                 first = temp;
                 last = temp;
-                temp = NULL;
+                temp = nullptr;
             } else {
                 last -> next = temp;
                 last = temp;
@@ -182,8 +182,8 @@ class ListObj{
         void deleteMid(T _obj) {
             bool found = false;
             Obj<T> *current = first;
-            Obj<T> *previous = NULL;
-            while (current != NULL && !found) {
+            Obj<T> *previous = nullptr;
+            while (current != nullptr && !found) {
                 if (current->info == _obj) {
                     found = true;
                 } else {
@@ -203,15 +203,15 @@ class ListObj{
 
         void deleteLast() {
             Obj<T> *current = first;
-            Obj<T> *previous = NULL;
+            Obj<T> *previous = nullptr;
             current = first;
-            while (current->next != NULL) {
+            while (current->next != nullptr) {
                 previous = current;
                 current = current->next;
             }
             //current adalah last element
             last = previous;
-            previous -> next = NULL;
+            previous -> next = nullptr;
             delete current;
         }
 
@@ -221,7 +221,7 @@ class ListObj{
         T get(int pos) const {
             int idx = 0;
             Obj<T> *current = first;
-            while (current != NULL && idx < pos) {
+            while (current != nullptr && idx < pos) {
                 current = current->next;
                 idx++;
             }
@@ -233,11 +233,11 @@ class ListObj{
         int size() const {
             int count = 0;
             Obj<T> *current =  first;
-            while (current != NULL) {
+            while (current != nullptr) {
                 current = current->next;
                 count++;
             }
-            //current == NULL
+            //current == nullptr
             return count;
         }
 

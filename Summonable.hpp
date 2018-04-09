@@ -28,7 +28,7 @@ class Summonable {
         
     protected:
         Point position; //mencatat posisi dari summonable pada point
-        int direction;  //direction harus berada pada angka 0 <= direction <= 360        
+        double direction;  //direction harus berada pada angka 0 <= direction <= 360        
         const int speed; //kecepatan dari Summonable
         static int id_count; //mencatat jumlah summonable yang telah diconstruct (untuk pencatatan id)
         const int id; //mencatat id setiap summonable

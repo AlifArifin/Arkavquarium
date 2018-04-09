@@ -1,5 +1,5 @@
 #include "Aquarium.hpp"
-using namespace std
+using namespace std;
 
 Aquarium::Aquarium(){}
 

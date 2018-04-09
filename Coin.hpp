@@ -17,7 +17,7 @@ class Coin : public Summonable {
         /*Setter*/
 
         /*Method*/
-        void move(); //untuk pergerakkan koin
+        void move(const Matrix &M); //untuk pergerakkan koin
         void show(); //untuk menampilkan koin
     
     private:
