@@ -6,10 +6,10 @@
 
 using namespace std;
 
-const int coin_time = 5;
-const int grow_time = 2;
-const int value_guppy = 100;  
-const int value_coin = 10;
+const int Guppy::coin_time = 5;
+const int Guppy::grow_time = 2;
+const int Guppy::value_guppy = 100;  
+const int Guppy::value_coin = 10;
 
 /*Sekawan*/
 Guppy::Guppy(Point _p) : Fish("guppy", value_guppy, _p) {
