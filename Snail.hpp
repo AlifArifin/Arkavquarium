@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Summonable.hpp"
 #include "Matrix.hpp"
+#include "ListObj.hpp"
+#include "Coin.hpp"
 
 using namespace std;
 
@@ -18,7 +20,7 @@ class Snail : public Summonable{
         /*Setter*/
 
         /*Method*/
-        void move(); //untuk pergerakan snail
+        int move(const ListObj<Coin>&); //untuk pergerakan snail
         void show(); //untuk display snail
 
     private:

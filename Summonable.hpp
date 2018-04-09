@@ -23,8 +23,7 @@ class Summonable {
         void setPosition(const Point&);
         void setDirection(int);
 
-        /*Method*/
-        virtual void move() = 0; //untuk pergerakkan summonable      
+        /*Method*/      
         virtual void show() = 0; //untuk display summonable
         
     protected:
