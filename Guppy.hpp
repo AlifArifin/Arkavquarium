@@ -27,6 +27,7 @@ class Guppy : public Fish{
         Coin dropCoin(); //untuk menghasilkan koin
         void eat(); //untuk makan
         void show(); //untuk display guppy
+        bool operator==(const Guppy&);
     
     private:
         int phase; //tahap dari guppy 

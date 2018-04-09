@@ -129,3 +129,7 @@ void Guppy::setFood_Count(int _f) {
 int Guppy::getValue_Guppy() {
     return value_guppy;
 }
+
+bool Guppy::operator==(const Guppy& g) {
+    return id = g.id;
+}
