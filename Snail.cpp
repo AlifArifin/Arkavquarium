@@ -17,10 +17,10 @@ int Snail::getSpeed_Snail(){
 /*Setter*/
 
 /*Method*/
-int move(const ListObj<Coin>& _l){
+int Snail::move(const ListObj<Coin>& _l){
     //untuk pergerakan snail
     if(!_l.isEmpty()){
-        double closest_coin = _l.get(0).position.distanceTo(position);
+        double closest_coin = _l.get(0).getPosition().distanceTo(position);
         int idx_coin = 0;
         for (int i = 0; i < _l.size(); i++) {
             double temp = _l.get(i).getPosition().distanceTo(position);
@@ -41,5 +41,9 @@ int move(const ListObj<Coin>& _l){
     }
 }
 
-void show(); //untuk display snail
+bool Snail::operator==(const Snail& s) const{
+    return id == s.id;
+}
+
+void show(){} //untuk display snail
 
