@@ -22,10 +22,6 @@ void Account::setMoney(int _money) {
 void Account::addMoney(int val) {
     money = money + val;
 }
-<<<<<<< HEAD
-bool Account::buyGuppy() {}
-bool Account::buyPiranha() {}
-=======
 
 bool Account::buyGuppy() {
     return money >= Guppy::getValue_Guppy();
@@ -35,7 +31,6 @@ bool Account::buyPiranha() {
     return money >= Piranha::getValue_Piranha();
 }
 
->>>>>>> 3c8d1a1f1705f30d44f17397ab0a406eb583ddca
 bool Account::buyFood() {}
 
 bool Account::buyEgg() {

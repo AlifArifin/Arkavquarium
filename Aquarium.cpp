@@ -45,24 +45,48 @@ void Aquarium::showAll(){
 	}
 }//menampilkan semua summonable yang ada pada aquarium ??GIMANA
 void Aquarium::moveAll(){
+	
 	for (int i = 0; i < list_food.size(); i++) {
 		list_food.get(i).move(aquarium_matrix);
 	}
+	
 	for (int i = 0; i < list_guppy.size(); i++) {
 		int c = list_guppy.get(i).move(list_food, aquarium_matrix);
 
 		if (c != -1) {
+			int idx = list_food.searchById(c);
+			Food *f = &list_food.get(idx);
+			list_food.remove(*f);
 
+			delete f;
+
+			list_guppy.get(i).eat();
 		}
 	}
+	
 	for (int i = 0; i < list_piranha.size(); i++) {
 		int c = list_piranha.get(i).move(list_guppy, aquarium_matrix);
+
+		if (c != -1) {
+			int idx = list_guppy.searchById(c);
+			Guppy *g = &list_guppy.get(idx);
+			list_guppy.remove(*g);
+
+			list_piranha.get(i).eat();
+			Coin c = list_piranha.get(i).dropCoin(*g);
+
+			list_coin.add(c);
+
+			delete g;
+		}
 	}
+	
 	for (int i = 0; i < list_coin.size(); i++) {
-
+		list_coin.get(i).move(aquarium_matrix);
 	}
-	for (int i = 0; i < list_snail.size(); i++) {
 
+	for (int i = 0; i < list_snail.size(); i++) {
+		list_snail.get(i).move(list_coin);
 	}
 } //menggerakkan semua summonable yang ada pada aquarium ??GIMANA
 
