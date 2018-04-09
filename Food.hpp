@@ -9,7 +9,7 @@ using namespace std;
 class Food : public Summonable {
     public:
         /*Sekawan*/
-        Food();
+        Food(Point P);
         ~Food(); //destructor sekalian untuk menambah koin pemain
 
         /*Getter*/
@@ -17,7 +17,7 @@ class Food : public Summonable {
         /*Setter*/
 
         /*Method*/
-        void move(); //untuk pergerakan food
+        void move(const Matrix &m); //untuk pergerakan food
         void show(); //untuk display food
         
     private:
