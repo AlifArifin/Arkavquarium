@@ -68,3 +68,7 @@ bool Point::isOutLeft(const Matrix& m){
 double Point::patan2(const Point& p) {
     return atan2(p.y - y, p.x - x); 
 }
+
+bool Point::operator==(const Point& p) const {
+    return x == p.x && y == p.y;
+}

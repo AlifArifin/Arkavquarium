@@ -10,7 +10,6 @@ class Coin : public Summonable {
     public:
         /*Sekawan*/
         Coin(Point P, int _val);
-        Coin(const Coin& C);
         ~Coin(); //destructor sekalian untuk menambah koin pemain
 
         /*Getter*/
@@ -20,9 +19,8 @@ class Coin : public Summonable {
         /*Method*/
         void move(const Matrix &M); //untuk pergerakkan koin
         void show(); //untuk menampilkan koin
+        bool operator== (const Coin&) const;
 
-        bool operator== (const Coin& C) const; //overload operator==
-    
     private:
         const int value;
 };

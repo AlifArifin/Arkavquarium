@@ -51,33 +51,29 @@ void Aquarium::moveAll(){
 	}
 	
 	for (int i = 0; i < list_guppy.size(); i++) {
-		int c = list_guppy.get(i).move(list_food, aquarium_matrix);
+		int idx = list_guppy.get(i).move(list_food, aquarium_matrix);
 
-		if (c != -1) {
-			int idx = list_food.searchById(c);
-			Food *f = &list_food.get(idx);
-			list_food.remove(*f);
-
-			delete f;
+		if (idx != -1) {
+			Food f = list_food.removeIdx(idx);
 
 			list_guppy.get(i).eat();
+
+			f.~Food();
 		}
 	}
 	
 	for (int i = 0; i < list_piranha.size(); i++) {
-		int c = list_piranha.get(i).move(list_guppy, aquarium_matrix);
+		int idx = list_piranha.get(i).move(list_guppy, aquarium_matrix);
 
-		if (c != -1) {
-			int idx = list_guppy.searchById(c);
-			Guppy *g = &list_guppy.get(idx);
-			list_guppy.remove(*g);
+		if (idx != -1) {
+			Guppy g = list_guppy.removeIdx(idx);
 
 			list_piranha.get(i).eat();
-			Coin c = list_piranha.get(i).dropCoin(*g);
+			Coin c = list_piranha.get(i).dropCoin(g);
 
 			list_coin.add(c);
 
-			delete g;
+			g.~Guppy();
 		}
 	}
 	
@@ -86,14 +82,12 @@ void Aquarium::moveAll(){
 	}
 
 	for (int i = 0; i < list_snail.size(); i++) {
-		int c = list_snail.get(i).move(list_coin);
+		int idx = list_snail.get(i).move(list_coin);
 
-		if (c != -1) {
-			int idx = list_coin.searchById(c);
-			Coin *c = &list_coin.get(idx);
-			list_coin.remove(*c);
+		if (idx != -1) {
+			Coin c = list_coin.removeIdx(idx);
 
-			delete c;
+			c.~Coin();
 		}
 	}
 } //menggerakkan semua summonable yang ada pada aquarium ??GIMANA

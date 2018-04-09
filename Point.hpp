@@ -27,6 +27,7 @@ class Point {
         bool isOutRight(const Matrix&); //untuk mengecek apakah summonable terdapat di kanan aquarium
         bool isOutLeft(const Matrix&); //untuk mengecek apakah summonable terdapat di kiri aquarium
         double patan2(const Point&);
+        bool operator==(const Point&) const;
 
     private:
         int x, y;

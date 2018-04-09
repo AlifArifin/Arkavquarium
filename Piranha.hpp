@@ -24,8 +24,7 @@ class Piranha : public Fish{
         void eat(); //untuk dan makan menghasilkan koin
         Coin dropCoin(const Guppy&); //untuk menghasilkan koin      
         void show(); //untuk display piranha
-        bool operator== (const Piranha&) const;
-    
+        bool operator==(const Piranha&) const;
     private:
         static const int value_piranha; //harga ikan piranha
 };

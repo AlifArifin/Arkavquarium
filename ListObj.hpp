@@ -6,39 +6,44 @@
 using namespace std;
 
 template <class T>
-class ListObj{
+class Obj{ //class dari elemen listobj
     public:
-        template <class T1>
-        class Obj{ //class dari elemen listobj
-            public:
-                /*Sekawan*/
-                Obj(T1 o) {
-                    info = o;
-                    next = NULL;
-                }
+        /*Sekawan*/
+        Obj(const T &o) : info(o) {
+            next = NULL;
+        }
 
-                /*Getter*/
-                T1 getInfo() const {
-                    return info;
-                }
-                Obj* getNext() const {
-                    return next;
-                }
+        /*Getter*/
+        T getInfo() const {
+            return info;
+        }
 
-                /*Setter*/
-                void setInfo(T1 o) {
-                    info = o;
-                }
-                void setNext(Obj* n) {
-                    next = n;
-                }
-                
-                /*Method*/
-            
-                /*Atribut*/
-                T1 info; //mencatat informasi dari obj
-                Obj *next; //mencatat alamat next dari obj
-        };
+        Obj* getNext() const {
+            return next;
+        }
+
+        /*Setter*/
+        void setInfo(const T &o) {
+            info = o;
+        }
+
+        void setNext(Obj<T>* n) {
+            next = n;
+        }
+
+        T* getRef() {
+            return &info;
+        }
+        
+        /*Method*/
+    
+        /*Atribut*/
+        T info; //mencatat informasi dari obj
+        Obj<T> *next; //mencatat alamat next dari obj
+};
+
+template <class T>
+class ListObj {
     private:
         Obj<T>* first; //mencatat alamat dari first listobj
         Obj<T>* last; //mencatat alamat dari last5 listobj
@@ -126,12 +131,11 @@ class ListObj{
         
         /*Method*/
         //mengembalikan indeks di mana T berada pada linked list, dan -1 jika tidak ada
-        int find(T _obj) const {
+        int find(const T& _obj) const {
             int idx = 0;
             bool found = false;
 
-            Obj<T> *current = new Obj<T>;
-            current = first;
+            Obj<T> *current = first;
             while (current != NULL && !found) {
                 if (current->info == _obj) {
                     found = true;
@@ -148,35 +152,13 @@ class ListObj{
             }
         }
 
-        int searchById(int id) const {
-            int idx = 0;
-            bool found = false;
-
-            Obj<T> *current = first;
-            while (current != NULL && !found) {
-                if (current->info.getId() == id) {
-                    found = true;
-                } else {
-                    current = current -> next;
-                    idx++;
-                }
-            }
-
-            // current = Last Element or not Found
-            if (current == NULL) {
-                return -1;
-            } else {
-                return idx;
-            }
-        }
-
         //mengembalikan nilai True jika linked list kosong
         bool isEmpty() const {
             return first == NULL;
         } 
         
         // menambahkan elemen sebagai T paling belakang pada linked list
-        void add(T _obj) {
+        void add(const T& _obj) {
             Obj<T> *temp = new Obj<T>(_obj);
             temp -> next = NULL;
             if (first == NULL) {
@@ -191,17 +173,40 @@ class ListObj{
 
         //membuang elemen dengan identitas sesuai parameter
         //asumsi elemen ada di dalam list
-        void remove(T _obj) {
-            if (_obj == first->info) {
-                deleteFirst();
-            } else if (_obj == last->info) {
-                deleteLast();
+        void remove(const T& _obj) {
+            if (_obj == first->getInfo()) {
+                T o = deleteFirst();
+            } else if (_obj == last->getInfo()) {
+                T o = deleteLast();
             } else {
-                deleteMid(_obj);
+                T o = deleteMid(_obj);
+            }
+        }
+
+        T removeIdx(int id) {
+            Obj<T> *temp = first;
+            Obj<T> *prev = NULL;
+
+            if (id == 0) {
+                T o = deleteFirst();
+                return o;
+            } else {
+                while (temp->getNext() != NULL && id > 1) {
+                    temp = temp->getNext();
+                    id--;
+                }
+
+                if (temp -> getNext() != NULL) {
+                    Obj<T> *rem = temp->getNext();
+                    temp->setNext(rem->getNext());
+                    T o = rem->getInfo();
+                    delete rem;
+                    return o;
+                }
             }
         }
         
-        void deleteMid(T _obj) {
+        T deleteMid(const T& _obj) {
             bool found = false;
             Obj<T> *current = first;
             Obj<T> *previous = NULL;
@@ -214,16 +219,21 @@ class ListObj{
                 }
             } 
             previous -> next = current -> next;
+            T o = current->getInfo();
             delete current;
+
+            return o;
         } 
 
-        void deleteFirst() {
+        T deleteFirst() {
+            T o = first->getInfo();
             Obj<T> *temp = first;
             first = first -> next;
             delete temp;
+            return o;
         }
 
-        void deleteLast() {
+        T deleteLast() {
             Obj<T> *current = first;
             Obj<T> *previous = NULL;
             current = first;
@@ -234,7 +244,9 @@ class ListObj{
             //current adalah last element
             last = previous;
             previous -> next = NULL;
+            T o = current->getInfo();
             delete current;
+            return o;
         }
 
         
@@ -265,10 +277,6 @@ class ListObj{
 
         void print() const {
             Obj<T> *current = first;
-            for (int i = 0; i < size(); i++) {
-                cout << current->info << endl;
-                current = current -> next;
-            }
         }
 };
 

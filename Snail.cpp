@@ -32,7 +32,7 @@ int Snail::move(const ListObj<Coin>& _l){
         Coin c = _l.get(idx_coin);
         if (closest_coin <= speed_snail) {
             position.setX(c.getPosition().getX());
-            return c.getId();
+            return _l.find(c);
         }else{
             return -1;
         }
@@ -41,9 +41,10 @@ int Snail::move(const ListObj<Coin>& _l){
     }
 }
 
-bool Snail::operator==(const Snail& s) const{
-    return id == s.id;
+void Snail::show(){} //untuk display snail
+
+bool Snail::operator==(const Snail& s) const {
+    return s.position == position && s.direction == direction;
 }
 
-void show(){} //untuk display snail
 

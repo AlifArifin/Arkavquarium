@@ -20,11 +20,11 @@ class Food : public Summonable {
         /*Method*/
         bool move(const Matrix &m); //untuk pergerakan food
         void show(); //untuk display food
-        
-        bool operator== (const Food& F) const;
+        bool operator==(const Food&) const;
 
     private:
         static const int value_food; //harga makanan
+        static const int speed_food;
 };
 
 #endif
