@@ -9,11 +9,10 @@ const double PI = 3.14159265;
 int id_count = 1;
 
 /*Sekawan*/
-Summonable::Summonable(string jenis, int _s, Point position) : id(id_count), speed(_s) {    
+Summonable::Summonable(string _j, int _s, Point _p) : id(id_count), speed(_s), jenis(_j) {    
     //menerima id, jenis, speed, dan lokasi spawn
     id_count ++;
-    this->jenis = jenis;
-    this->position = position;
+    position = _p;
     direction = 0;         
 }
 

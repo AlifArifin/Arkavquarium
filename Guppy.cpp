@@ -74,21 +74,21 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m) {
         if (position.isOutLeft(m)) {
             position.setY(0);
             count_move = 0;
-            direction = rand() % PI - (PI/2);
+            direction = rand() % 100 / 100.0 * PI - (PI/2);
         } else if (position.isOutRight(m)) {
             position.setY(m.getColumn() - 1);
             count_move = 0;
-            direction = rand() % PI + (PI/2);
+            direction = rand() % 100 / 100.0 * PI + (PI/2);
         }
         
         if (position.isOutTop(m)) {
             position.setX(0);
             count_move = 0;
-            direction = rand() % PI + PI;
+            direction = rand() % 100 / 100.0 * PI + PI;
         } else if (position.isOutBottom(m)) {
             position.setX(m.getRow() - 1);
             count_move = 0;
-            direction = rand() % PI;
+            direction = rand() % 100 / 100.0 * PI;
         }
 
         return -1;
