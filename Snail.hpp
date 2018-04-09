@@ -12,7 +12,7 @@ using namespace std;
 class Snail : public Summonable{
     public:
         /*Sekawan*/
-        Snail();
+        Snail(Point);
 
         /*Getter*/
         static int getSpeed_Snail();
@@ -22,6 +22,7 @@ class Snail : public Summonable{
         /*Method*/
         int move(const ListObj<Coin>&); //untuk pergerakan snail
         void show(); //untuk display snail
+        bool operator==(const Snail&) const;
 
     private:
         static const int speed_snail; //mencatat kecepatan untuk Snail
