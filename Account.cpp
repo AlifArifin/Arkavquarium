@@ -19,7 +19,7 @@ void Account::setMoney(int _money) {
 }
 
 void Account::addMoney(int val) {
-    money += val;
+    money = money + val;
 }
 bool Account::buyGuppy() {}
 bool Account::buyPiranha() {}
