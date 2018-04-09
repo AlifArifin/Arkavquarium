@@ -6,6 +6,7 @@
 #include "Coin.hpp"
 #include "Guppy.hpp"
 #include "ListObj.hpp"
+#include "Matrix.hpp"
 using namespace std;
 
 class Piranha : public Fish{

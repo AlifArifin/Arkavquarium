@@ -18,8 +18,8 @@ void Account::setMoney(int _money) {
     money = _money;
 }
 
-void Account::addMoney() {
-    
+void Account::addMoney(int val) {
+    money += val;
 }
 bool Account::buyGuppy() {}
 bool Account::buyPiranha() {}
