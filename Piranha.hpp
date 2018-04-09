@@ -15,6 +15,7 @@ class Piranha : public Fish{
         Piranha(Point);
 
         /*Getter*/
+        static int getValue_Piranha();
 
         /*Setter*/
         

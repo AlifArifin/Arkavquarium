@@ -44,5 +44,25 @@ void Aquarium::showAll(){
 		list_coin.get(i).show();
 	}
 }//menampilkan semua summonable yang ada pada aquarium ??GIMANA
-void Aquarium::moveAll(){} //menggerakkan semua summonable yang ada pada aquarium ??GIMANA
+void Aquarium::moveAll(){
+	for (int i = 0; i < list_food.size(); i++) {
+		list_food.get(i).move(aquarium_matrix);
+	}
+	for (int i = 0; i < list_guppy.size(); i++) {
+		int c = list_guppy.get(i).move(list_food, aquarium_matrix);
+
+		if (c != -1) {
+
+		}
+	}
+	for (int i = 0; i < list_piranha.size(); i++) {
+		int c = list_piranha.get(i).move(list_guppy, aquarium_matrix);
+	}
+	for (int i = 0; i < list_coin.size(); i++) {
+
+	}
+	for (int i = 0; i < list_snail.size(); i++) {
+
+	}
+} //menggerakkan semua summonable yang ada pada aquarium ??GIMANA
 

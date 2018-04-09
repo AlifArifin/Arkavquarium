@@ -14,8 +14,9 @@ class Guppy : public Fish{
 
         /*Getter*/
         int getPhase() const;
-        int getCoin_Time() const;
+        static int getCoin_Time();
         int getFood_Count() const;
+        static int getValue_Guppy();
 
         /*Setter*/
         void setPhase(int);
@@ -33,6 +34,7 @@ class Guppy : public Fish{
         const static int coin_time; //periode mengeluarkan koin
         const static int value_guppy;   //harga guppy
         const static int value_coin; //value coin yang dihasilkan guppy
+        const static int grow_time;
 };
 
 #endif

@@ -22,7 +22,7 @@ int Guppy::getPhase() const {
     return phase;
 }
 
-int Guppy::getCoin_Time() const {
+int Guppy::getCoin_Time() {
     return coin_time;
 }
 
@@ -123,4 +123,8 @@ int Guppy::getFood_Count() const {
 
 void Guppy::setFood_Count(int _f) {
     food_count = _f;
+}
+
+int Guppy::getValue_Guppy() {
+    return value_guppy;
 }
