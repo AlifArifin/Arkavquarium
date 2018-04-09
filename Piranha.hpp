@@ -11,7 +11,7 @@ using namespace std;
 class Piranha : public Fish{
     public:
         /*Sekawan*/
-        Piranha();
+        Piranha(Point);
 
         /*Getter*/
 

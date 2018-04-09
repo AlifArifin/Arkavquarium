@@ -8,7 +8,7 @@ using namespace std;
 
 const int Piranha::value_piranha = 100;
 
-Piranha::Piranha() : Fish("piranha", value_piranha) {
+Piranha::Piranha(Point _p) : Fish("piranha", value_piranha, _p) {
 }
 
 Guppy Piranha::move(const ListObj<Guppy>& _l, const Matrix& m) {
