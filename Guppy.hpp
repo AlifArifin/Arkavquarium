@@ -22,7 +22,7 @@ class Guppy : public Fish{
         void setFood_Count(int);
         
         /*Method*/
-        Food move(const ListObj<Food>&, const Matrix&); //untuk pergerakkan Guppy    
+        int move(const ListObj<Food>&, const Matrix&); //untuk pergerakkan Guppy    
         Coin dropCoin(); //untuk menghasilkan koin
         void eat(); //untuk makan
         void show(); //untuk display guppy

@@ -24,7 +24,6 @@ class Summonable {
         void setDirection(int);
 
         /*Method*/
-        virtual void move() = 0; //untuk pergerakkan summonable      
         virtual void show() = 0; //untuk display summonable
         
     protected:
@@ -34,6 +33,7 @@ class Summonable {
         static int id_count; //mencatat jumlah summonable yang telah diconstruct (untuk pencatatan id)
         const int id; //mencatat id setiap summonable
         const string jenis; //menunjukkan jenis dari summonable
+        static const double PI;
 };
 
 #endif
