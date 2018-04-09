@@ -86,7 +86,15 @@ void Aquarium::moveAll(){
 	}
 
 	for (int i = 0; i < list_snail.size(); i++) {
-		list_snail.get(i).move(list_coin);
+		int c = list_snail.get(i).move(list_coin);
+
+		if (c != -1) {
+			int idx = list_coin.searchById(c);
+			Coin *c = &list_coin.get(idx);
+			list_coin.remove(*c);
+
+			delete c;
+		}
 	}
 } //menggerakkan semua summonable yang ada pada aquarium ??GIMANA
 
