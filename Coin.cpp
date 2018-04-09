@@ -31,3 +31,7 @@ void Coin::move(const Matrix &M) { //untuk pergerakkan koin
 }
 
 void Coin::show() {} //untuk menampilkan koin
+
+bool Coin::operator== (const Coin& C) const { //overload operator==
+    return (C.id == id);
+}

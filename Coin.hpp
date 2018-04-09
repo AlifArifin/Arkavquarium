@@ -19,6 +19,8 @@ class Coin : public Summonable {
         /*Method*/
         void move(const Matrix &M); //untuk pergerakkan koin
         void show(); //untuk menampilkan koin
+
+        bool operator== (const Coin& C) const; //overload operator==
     
     private:
         const int value;
