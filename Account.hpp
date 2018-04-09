@@ -18,7 +18,7 @@ class Account{
 
 		//setter
 		void setMoney(int);
-		void addMoney(int val);
+		void addMoney(int);
 		bool buyGuppy();
 		bool buyPiranha();
 		bool buyFood();
