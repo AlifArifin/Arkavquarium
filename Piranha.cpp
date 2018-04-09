@@ -2,9 +2,7 @@
 #include "ListObj.hpp"
 #include <iostream>
 #include <cmath>
-#include "time.h"
 #include <cstdlib>
-#include <cstddef>
 
 using namespace std;
 
@@ -94,6 +92,6 @@ int Piranha::getValue_Piranha() {
     return value_piranha;
 }
 
-bool Piranha::operator==(const Piranha& p) {
+bool Piranha::operator==(const Piranha& p) const {
     return id == p.id;
 }
