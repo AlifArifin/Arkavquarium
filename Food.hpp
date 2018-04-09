@@ -13,6 +13,7 @@ class Food : public Summonable {
         ~Food(); //destructor sekalian untuk menambah koin pemain
 
         /*Getter*/
+        static int getValue_Food();
 
         /*Setter*/
 
@@ -21,6 +22,7 @@ class Food : public Summonable {
         void show(); //untuk display food
         
     private:
+        static const int value_food; //harga makanan
 };
 
 #endif

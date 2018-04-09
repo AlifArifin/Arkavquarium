@@ -3,6 +3,7 @@
 #include <math.h>
 
 const int food_speed = 5;
+const int value_food = 10;
 
 /*Sekawan*/
 Food::Food(Point P) : Summonable("food", food_speed, P) {
@@ -12,6 +13,9 @@ Food::Food(Point P) : Summonable("food", food_speed, P) {
 Food::~Food() {} //destructor sekalian untuk menambah koin pemain
 
 /*Getter*/
+int Food::getValue_Food() {
+    return value_food;
+}
 
 /*Setter*/
 
@@ -27,6 +31,7 @@ void Food::move(const Matrix& m) { //untuk pergerakan food
         }
     }
 }
+
 void Food::show() { //untuk display food
 
 }
