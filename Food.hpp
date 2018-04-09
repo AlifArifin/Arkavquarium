@@ -21,6 +21,8 @@ class Food : public Summonable {
         bool move(const Matrix &m); //untuk pergerakan food
         void show(); //untuk display food
         
+        bool operator== (const Food& F) const;
+
     private:
         static const int value_food; //harga makanan
 };
