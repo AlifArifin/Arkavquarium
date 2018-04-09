@@ -1,9 +1,8 @@
 #include "Guppy.hpp"
 #include "Matrix.hpp"
 #include <iostream>
-#include <cmath>
 #include <cstdlib>
-#include <cstddef>
+#include <cmath>
 
 using namespace std;
 
@@ -130,6 +129,6 @@ int Guppy::getValue_Guppy() {
     return value_guppy;
 }
 
-bool Guppy::operator==(const Guppy& g) {
-    return id = g.id;
+bool Guppy::operator==(const Guppy& g) const {
+    return id == g.id;
 }
