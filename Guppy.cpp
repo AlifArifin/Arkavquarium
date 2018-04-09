@@ -2,6 +2,7 @@
 #include "Matrix.hpp"
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 #include <cstddef>
 
 using namespace std;
@@ -43,7 +44,7 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m) {
 
     if (hungry) {
         if (!_l.isEmpty()) {
-            double closest_food = _l.get(0).getPosition.distanceTo(position);
+            double closest_food = _l.get(0).getPosition().distanceTo(position);
             int idx_food = 0;
             for (int i = 0; i < _l.size(); i++) {
                 double temp = _l.get(i).getPosition().distanceTo(position);
