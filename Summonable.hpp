@@ -33,6 +33,7 @@ class Summonable {
         static int id_count; //mencatat jumlah summonable yang telah diconstruct (untuk pencatatan id)
         const int id; //mencatat id setiap summonable
         const string jenis; //menunjukkan jenis dari summonable
+        static const double PI;
 };
 
 #endif

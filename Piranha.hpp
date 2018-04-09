@@ -11,14 +11,14 @@ using namespace std;
 class Piranha : public Fish{
     public:
         /*Sekawan*/
-        Piranha();
+        Piranha(Point);
 
         /*Getter*/
 
         /*Setter*/
         
         /*Method*/
-        Guppy move(const ListObj<Guppy>&, const Matrix&); //untuk pergerakkan Piranha    
+        int move(const ListObj<Guppy>&, const Matrix&); //untuk pergerakkan Piranha    
         void eat(); //untuk dan makan menghasilkan koin
         Coin dropCoin(const Guppy&); //untuk menghasilkan koin      
         void show(); //untuk display piranha
