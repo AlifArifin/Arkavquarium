@@ -93,3 +93,7 @@ void Piranha::show() {
 int Piranha::getValue_Piranha() {
     return value_piranha;
 }
+
+bool Piranha::operator==(const Piranha& p) {
+    return id == p.id;
+}
