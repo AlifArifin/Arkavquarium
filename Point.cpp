@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Point.hpp"
 #include "Matrix.hpp"
-#include <Math.h>
+#include <math.h>
 
 using namespace std;
 

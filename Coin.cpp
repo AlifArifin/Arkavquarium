@@ -10,6 +10,12 @@ Coin::Coin(Point P, int _val) : Summonable("coin", coin_speed, P), value(_val) {
     direction = 3*M_PI/4;
 }
 
+Coin::Coin(const Coin& C) : Summonable("coin", coin_speed, C.position), value(C.value){ 
+    direction = C.direction;
+}
+
+
+
 Coin::~Coin() { //destructor sekalian untuk menambah koin pemain
     
 }

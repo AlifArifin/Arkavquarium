@@ -38,3 +38,7 @@ bool Food::move(const Matrix& m) { //untuk pergerakan food
 void Food::show() { //untuk display food
 
 }
+
+bool Food::operator== (const Food& F) const {
+    return (F.id == id);
+}
