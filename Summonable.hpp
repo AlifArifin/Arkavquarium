@@ -9,7 +9,7 @@ using namespace std;
 class Summonable {
     public:
         /*Sekawan*/
-        Summonable(string, int, Point);    //menerima id, jenis, speed, dan lokasi spawn
+        Summonable(string, int, Point);    //menerima jenis, speed, dan lokasi spawn
         virtual ~Summonable();
 
         /*Getter*/

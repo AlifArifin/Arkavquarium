@@ -9,7 +9,7 @@ using namespace std;
 class Coin : public Summonable {
     public:
         /*Sekawan*/
-        Coin();
+        Coin(Point P, int _val);
         ~Coin(); //destructor sekalian untuk menambah koin pemain
 
         /*Getter*/

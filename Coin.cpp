@@ -1,21 +1,17 @@
 #include "Coin.hpp"
 
-class Coin : public Summonable {
-    public:
-        /*Sekawan*/
-        Coin();
-        ~Coin(); //destructor sekalian untuk menambah koin pemain
+const int coin_speed = 5;
 
-        /*Getter*/
+/*Sekawan*/
+Coin::Coin(Point P, int _val) : Summonable("coin", coin_speed, P), value(_val) {}
 
-        /*Setter*/
-
-        /*Method*/
-        void move(); //untuk pergerakkan koin
-        void show(); //untuk menampilkan koin
+Coin::~Coin() { //destructor sekalian untuk menambah koin pemain
     
-    private:
-        const int value;
-};
+}
+/*Getter*/
 
-#endif
+/*Setter*/
+
+/*Method*/
+void Coin::move() {} //untuk pergerakkan koin
+void Coin::show() {} //untuk menampilkan koin
