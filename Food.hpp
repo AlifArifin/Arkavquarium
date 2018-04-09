@@ -18,7 +18,7 @@ class Food : public Summonable {
         /*Setter*/
 
         /*Method*/
-        void move(const Matrix &m); //untuk pergerakan food
+        bool move(const Matrix &m); //untuk pergerakan food
         void show(); //untuk display food
         
     private:

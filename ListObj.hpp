@@ -140,7 +140,29 @@ class ListObj{
                     idx++;
                 }
             }
-            //current = Last Element of not found
+            //current = Last Element or not found
+            if (current == nullptr) {
+                return -1;
+            } else {
+                return idx;
+            }
+        }
+
+        int searchById(int id) const {
+            int idx = 0;
+            bool found = false;
+
+            Obj<T> *current = first;
+            while (current != nullptr && !found) {
+                if (current->info.getId() == id) {
+                    found = true;
+                } else {
+                    current = current -> next;
+                    idx++;
+                }
+            }
+
+            // current = Last Element or not Found
             if (current == nullptr) {
                 return -1;
             } else {

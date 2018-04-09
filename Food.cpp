@@ -20,7 +20,7 @@ int Food::getValue_Food() {
 /*Setter*/
 
 /*Method*/
-void Food::move(const Matrix& m) { //untuk pergerakan food
+bool Food::move(const Matrix& m) { //untuk pergerakan food
     if (!position.isBottom(m)) {
         Point newPos(position.getX(), position.getY() + speed);
         if (newPos.isOutBottom(m)) {
@@ -29,6 +29,9 @@ void Food::move(const Matrix& m) { //untuk pergerakan food
         } else {
             position = newPos;
         }
+        return true;
+    } else {
+        return false;
     }
 }
 
