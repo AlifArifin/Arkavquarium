@@ -10,6 +10,7 @@ class Coin : public Summonable {
     public:
         /*Sekawan*/
         Coin(Point P, int _val);
+        Coin(const Coin& C);
         ~Coin(); //destructor sekalian untuk menambah koin pemain
 
         /*Getter*/
