@@ -25,6 +25,7 @@ class Aquarium {
         ListObj<Snail> getList_Snail() const;
         ListObj<Coin> getList_Coin() const;
         Matrix getAquarium_Matrix() const;
+        Account getAccount() const;
 
         /*Setter*/
         void setList_Guppy(ListObj<Guppy>&);

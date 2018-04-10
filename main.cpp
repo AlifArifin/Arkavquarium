@@ -54,6 +54,44 @@ int main( int argc, char* args[] )
             running = false;
         }
 
+        // Gerakkan ikan selama tombol panah ditekan
+        // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
+        // konstan pada komputer yang berbeda.
+        for (auto key : get_pressed_keys()) {
+            switch (key) {
+            case SDLK_1:    //beli guppy
+                if (aqu.getAccount().buyGuppy()) {
+                    Point ptemp(rand() % 640 - 1, rand() % 480 - 1);
+                    Guppy gtemp(ptemp);
+                    aqu.add(gtemp);
+                } else {
+
+                }
+                break;
+            case SDLK_2:    //beli 
+                if (aqu.getAccount().buyPiranha()) {
+                    Point ptemp(rand() % 640 - 1, rand() % 480 - 1);
+                    Piranha itemp(ptemp);
+                    aqu.add(itemp);
+                } else {
+
+                }
+                break;
+            case SDLK_3:
+                if (aqu.getAccount().buyFood()) {
+                    Point ptemp(rand() % 640 - 1, rand() % 480 - 1);
+                    Food ftemp(ptemp);
+                    aqu.add(ftemp);
+                } else {
+
+                }
+            case SDLK_4:
+                if (aqu.getAccount().buyEgg()) {
+                    
+                }
+            }
+        }
+
         // Update FPS setiap detik
         frames_passed++;
         if (now - fpc_start > 1) {
