@@ -53,15 +53,16 @@ void Aquarium::showAll(){
 }//menampilkan semua summonable yang ada pada aquarium ??GIMANA
 void Aquarium::moveAll(double time){
 	
-	for (int i = 0; i < list_food.size(); i++) {
+	int listSize = list_food.size();
+
+	for (int i = 0; i < listSize; i++) {
 		bool bottom = list_food.get(i).move(aquarium_matrix, time);
 
 		if (bottom) {
 			Food f = list_food.removeIdx(i);
 
 			f.~Food();
-			
-			i--;
+			listSize = list_food.size();
 		}
 	}
 	
