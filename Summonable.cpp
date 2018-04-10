@@ -6,7 +6,7 @@
 using namespace std;
 
 const double PI = 3.14159265;
-int id_count = 1;
+int Summonable::id_count = 1;
 
 /*Sekawan*/
 Summonable::Summonable(string _j, int _s, Point _p) : id(id_count), speed(_s), jenis(_j), position(_p) {
