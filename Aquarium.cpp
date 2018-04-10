@@ -58,6 +58,7 @@ void Aquarium::moveAll(double time){
 
 		if (bottom) {
 			list_food.removeIdx(i);
+			i--;
 		}
 	}
 	
@@ -66,10 +67,17 @@ void Aquarium::moveAll(double time){
 
 		if (idx == -2) {
 			list_guppy.removeIdx(i);
+			i--;
+			continue;
 		} else if (idx != -1) {
 			list_food.removeIdx(idx);
-
 			list_guppy.get(i).eat();
+		}
+
+		if (list_guppy.get(i).getCoin_Count() >= Guppy::getCoin_Time()) {
+			Coin c = list_guppy.get(i).dropCoin();
+
+			list_coin.add(c);
 		}
 	}
 	
@@ -78,12 +86,11 @@ void Aquarium::moveAll(double time){
 
 		if (idx != -1) {
 			Coin c = list_piranha.get(i).dropCoin(list_guppy.get(idx));
+			list_coin.add(c);
 			
 			list_guppy.removeIdx(idx);
 
 			list_piranha.get(i).eat();
-
-			list_coin.add(c);
 		}
 	}
 	
@@ -95,7 +102,10 @@ void Aquarium::moveAll(double time){
 		int idx = list_snail.get(i).move(list_coin, time);
 
 		if (idx != -1) {
+			Coin c = list_coin.get(idx);
 			list_coin.removeIdx(idx);
+
+			Account::addMoney(c.getValue());
 		}
 	}
 } //menggerakkan semua summonable yang ada pada aquarium ??GIMANA

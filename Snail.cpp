@@ -23,28 +23,38 @@ int Snail::getSpeed_Snail(){
 int Snail::move(const ListObj<Coin>& _l, double time){
     //untuk pergerakan snail
     position.setY(480 - radius_snail - 1);
+    draw_text(to_string(position.getX()) + " " + to_string(position.getY()), 18, 250, 280, 0, 0, 0);
     if(!_l.isEmpty()){
-        double closest_coin = _l.get(0).getPosition().getY();
+        Point closest_coin = _l.get(0).getPosition();
         int idx_coin = 0;
         for (int i = 0; i < _l.size(); i++) {
-            double temp = _l.get(i).getPosition().getY();
-            if (temp < closest_coin) {
+            Point temp = _l.get(i).getPosition();
+            if (position.isInRadius(temp, Coin::getRadius_Coin() + radius_snail)) {
+                return i;
+            } else if (int(temp.getY()) > int(closest_coin.getY())) {
                 closest_coin = temp;
                 idx_coin = i;
+            } else if (int(temp.getY()) == int(closest_coin.getY())) {
+                if (position.distanceTo(temp) < position.distanceTo(closest_coin)) {
+                    closest_coin = temp;
+                    idx_coin = i;
+                }
             }
         }
 
         Coin c = _l.get(idx_coin);
 
         double a = position.patan2(c.getPosition());
-        setDirection(a * 180.0/PI);
+        int dir = (int (a * 180.0/PI) % 360 + 360) % 360;
+        setDirection(dir);
 
         if (position.isInRadius(c.getPosition(), Coin::getRadius_Coin() + radius_snail)) {
-            return _l.find(c);
-        } else if (position.getX() == c.getPosition().getX()) {
+            return idx_coin;
+        } else if (int(position.getX()) == int(c.getPosition().getX())) {
             return -1;
         } else {
-            position.setX(c.getPosition().getX() + speed_snail * time);
+            draw_text(to_string(speed_snail) + " " + to_string(_l.size()) + " " + to_string(time), 18, 250, 250, 0, 0, 0);
+            position.setX(position.getX() + speed_snail * cos(dir * PI/180) * time);
             return -1;
         }
     } else {

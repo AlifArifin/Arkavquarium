@@ -15,6 +15,7 @@ class Coin : public Summonable {
         /*Getter*/
         static int getRadius_Coin();
         static int getSpeed_Coin();
+        int getValue();
         static string getImage();
 
         /*Setter*/

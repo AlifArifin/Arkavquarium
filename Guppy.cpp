@@ -20,6 +20,7 @@ Guppy::Guppy(Point _p) : Fish("guppy", value_guppy, _p) {
     phase = 1;
     food_count = 0;
     image = image_guppy[0][0];
+    coin_count = 0;
 }
 
 /*Getter*/
@@ -39,13 +40,14 @@ void Guppy::setPhase(int _p) {
 /*Method*/
 int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
     count_move += time;
+    change_move -= time;
+    coin_count += time;
 
     if (count_move >= hunger_time && !hungry) {
         hungry = true;
     } else if (count_move >= dead_time) {
         return -2;
-    } else if (count_move >= change_move && !hungry) {
-        count_move = 0;
+    } else if (change_move <= 0 && !hungry) {
         setChange_Move();
     } 
 
@@ -63,10 +65,11 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
         Food g = _l.get(idx_food);
 
         double a = position.patan2(g.getPosition());
-        int dir = int (a * 180.0/PI) % 360;
+        int dir = (int (a * 180.0/PI) % 360 + 360) % 360;
         setDirection(dir);
 
-        draw_text(to_string(direction), 18, 15, 30, 0, 0, 0);
+        draw_text(to_string(dir), 18, 15, 300, 0, 0, 0);
+        draw_text(to_string(count_move) + " " + to_string(change_move), 18, 15, 30, 0, 0, 0);
 
         if (g.getPosition().isInRadius(position, radius_guppy * phase + Food::getRadius_Food())) {
             count_move = 0;
@@ -79,8 +82,8 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
     } else {
         double rad = PI/180 * direction;
         setDirection(direction);
-        draw_text(to_string(direction), 18, 15, 30, 0, 0, 0);
-
+        draw_text(to_string(count_move) + " " + to_string(change_move), 18, 15, 30, 0, 0, 0);
+        
         position.setX(position.getX() + speed_fish * cos(rad) * time);
         position.setY(position.getY() + speed_fish * sin(rad) * time);
 
@@ -110,6 +113,7 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
 }   
 
 Coin Guppy::dropCoin() {
+    coin_count = 0;
     int val = value_coin * phase;
     Coin _c(position, val);    
 
@@ -171,4 +175,8 @@ void Guppy::setDirection(int d) {
 
 string Guppy::getImage() {
     return image;
+}
+
+double Guppy::getCoin_Count() {
+    return coin_count;
 }

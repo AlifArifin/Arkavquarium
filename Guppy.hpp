@@ -20,6 +20,7 @@ class Guppy : public Fish{
         static int getValue_Guppy();
         static int getRadius_Guppy();
         string getImage();
+        double getCoin_Count();
 
         /*Setter*/
         void setPhase(int);
@@ -43,6 +44,7 @@ class Guppy : public Fish{
         const static int radius_guppy;
         const static string image_guppy[3][4];
         string image;
+        double coin_count;
 };
 
 #endif

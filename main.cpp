@@ -87,7 +87,6 @@ int main( int argc, char* args[] )
                 }
             case SDLK_4:
                 if (aqu.getAccount().buyEgg()) {
-                    
                 }
             }
         }
@@ -114,8 +113,8 @@ int main( int argc, char* args[] )
         draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         
         // Menampilkan uang
-        draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 500, 30, 0, 0, 0);
-        draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 60, 0, 0, 0);
+        draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 500, 10, 0, 0, 0);
+        draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 40, 0, 0, 0);
 
         aqu.moveAll(sec_since_last);
         aqu.showAll();

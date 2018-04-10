@@ -16,12 +16,13 @@ Piranha::Piranha(Point _p) : Fish("piranha", value_piranha, _p) {
 
 int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
     count_move += time;
+    change_move -= time;
+
     if (count_move >= hunger_time && !hungry) {
         hungry = true;
     } else if (count_move >= dead_time) {
         return -2;
-    } else if (count_move >= change_move && !hungry) {
-        count_move = 0;
+    } else if (change_move <= 0 && !hungry) {
         setChange_Move();
     }
 
@@ -37,9 +38,8 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
         }
 
         Guppy g = _l.get(idx_food);
-
         double a = position.patan2(g.getPosition());
-        int dir = int (a * 180.0/PI) % 360;
+        int dir = (int (a * 180.0/PI) % 360 + 360) % 360;
         setDirection(dir); 
         
         if (g.getPosition().isInRadius(position, radius_piranha + Guppy::getRadius_Guppy() * g.getPhase())) {

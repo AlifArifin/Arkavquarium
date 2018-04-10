@@ -46,3 +46,7 @@ string Coin::getImage() {
     return image;
 }
 
+int Coin::getValue() {
+    return value;
+}
+
