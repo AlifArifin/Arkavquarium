@@ -59,23 +59,23 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
         position.setY(position.getX() + speed_fish * sin(rad) * time);
         
         if (position.isOutLeft(m, radius_piranha)) {
-            position.setY(radius_piranha);
+            position.setX(radius_piranha);
             count_move = 0;
             direction = (rand() % 180 - 90 ) % 360;
         } else if (position.isOutRight(m, radius_piranha)) {
-            position.setY(m.getColumn() - 1 - radius_piranha);
+            position.setX(m.getColumn() - 1 - radius_piranha);
             count_move = 0;
             direction = rand() % 180 + 90;
         }
         
         if (position.isOutTop(m, radius_piranha)) {
-            position.setX(radius_piranha);
-            count_move = 0;
-            direction = rand() % 180 + 180;
-        } else if (position.isOutBottom(m, radius_piranha)) {
-            position.setX(m.getRow() - 1 - radius_piranha);
+            position.setY(radius_piranha);
             count_move = 0;
             direction = rand() % 180;
+        } else if (position.isOutBottom(m, radius_piranha)) {
+            position.setY(m.getRow() - 1 - radius_piranha);
+            count_move = 0;
+            direction = rand() % 180 + 180;
         }
 
         return -1;

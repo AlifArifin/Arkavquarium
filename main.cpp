@@ -29,15 +29,20 @@ int main( int argc, char* args[] )
     bool running = true;
 
     // Inisiasi game
+    srand(time(NULL));
+    
     Aquarium aqu;
-    Point p1(250,250);
+    Point p1(250,250), p2(200, 0);
     Guppy g1(p1);
+    Food f1(p2);
 
     aqu.add(g1);
+    aqu.add(f1);
 
     double prevtime = time_since_start();
 
     while (running) {
+        srand(time(NULL));
         double now = time_since_start();
         double sec_since_last = now - prevtime;
         prevtime = now;

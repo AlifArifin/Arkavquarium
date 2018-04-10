@@ -77,7 +77,7 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
         }
     } else {
         double rad = PI/180 * direction;
-        draw_text(to_string(rad), 18, 10, 30, 0, 0, 0);
+        draw_text(to_string(direction), 18, 10, 30, 0, 0, 0);
 
         setDirection(direction);
 
@@ -88,23 +88,23 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
         draw_text(to_string(position.getY()), 18, 15, 90, 0, 0, 0);
 
         if (position.isOutLeft(m, radius_guppy * phase)) {
-            position.setY(radius_guppy * phase);
+            position.setX(radius_guppy * phase);
             count_move = 0;
             direction = (rand() % 180 - 90 ) % 360;
         } else if (position.isOutRight(m, radius_guppy * phase)) {
-            position.setY(m.getColumn() - 1 - radius_guppy * phase);
+            position.setX(m.getColumn() - 1 - radius_guppy * phase);
             count_move = 0;
             direction = rand() % 180 + 90;
         }
         
         if (position.isOutTop(m, radius_guppy * phase)) {
-            position.setX(radius_guppy * phase);
-            count_move = 0;
-            direction = rand() % 180 + 180;
-        } else if (position.isOutBottom(m, radius_guppy * phase)) {
-            position.setX(m.getRow() - 1 - radius_guppy * phase);
+            position.setY(radius_guppy * phase);
             count_move = 0;
             direction = rand() % 180;
+        } else if (position.isOutBottom(m, radius_guppy * phase)) {
+            position.setY(m.getRow() - 1 - radius_guppy * phase);
+            count_move = 0;
+            direction = rand() % 180 + 180;
         }
 
         return -1;
