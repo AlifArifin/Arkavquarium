@@ -57,7 +57,8 @@ void Fish::setCount_Move(double _c) {
 }
 
 void Fish::setChange_Move() {
-    change_move = rand() % 45 + 5 / 10.0;
+    change_move = (rand() % 45 + 5) / 10.0;
+    direction = rand() % 360;
 }
 
 int Fish::getValue() const {
