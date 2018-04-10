@@ -84,7 +84,11 @@ void Aquarium::moveAll(double time){
 	for (int i = 0; i < list_piranha.size(); i++) {
 		int idx = list_piranha.get(i).move(list_guppy, aquarium_matrix, time);
 
-		if (idx != -1) {
+		if (idx == -2) {
+			list_piranha.removeIdx(i);
+			i--;
+			continue;
+		} else if (idx != -1) {
 			Coin c = list_piranha.get(i).dropCoin(list_guppy.get(idx));
 			list_coin.add(c);
 			

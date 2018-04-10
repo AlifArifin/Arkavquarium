@@ -3,7 +3,7 @@
 #include "Piranha.hpp"
 #include "Food.hpp"
 
-int Account::money = 500;
+int Account::money = 20000;
 const int Account::egg_price = 1000;
 
 //constructor
