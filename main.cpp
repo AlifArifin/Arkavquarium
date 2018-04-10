@@ -54,6 +54,44 @@ int main( int argc, char* args[] )
             running = false;
         }
 
+        // Gerakkan ikan selama tombol panah ditekan
+        // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
+        // konstan pada komputer yang berbeda.
+        for (auto key : get_tapped_keys()) {
+            switch (key) {
+            case SDLK_1:    //beli guppy
+                if (aqu.getAccount().buyGuppy()) {
+                    Point ptemp(rand() % 640 - 1, rand() % 480 - 1);
+                    Guppy gtemp(ptemp);
+                    aqu.add(gtemp);
+                } else {
+
+                }
+                break;
+            case SDLK_2:    //beli 
+                if (aqu.getAccount().buyPiranha()) {
+                    Point ptemp(rand() % 640 - 1, rand() % 480 - 1);
+                    Piranha itemp(ptemp);
+                    aqu.add(itemp);
+                } else {
+
+                }
+                break;
+            case SDLK_3:
+                if (aqu.getAccount().buyFood()) {
+                    Point ptemp(rand() % 640 - 1, rand() % 480 - 1);
+                    Food ftemp(ptemp);
+                    aqu.add(ftemp);
+                } else {
+
+                }
+            case SDLK_4:
+                if (aqu.getAccount().buyEgg()) {
+                    
+                }
+            }
+        }
+
         // Update FPS setiap detik
         frames_passed++;
         if (now - fpc_start > 1) {
@@ -65,12 +103,20 @@ int main( int argc, char* args[] )
             frames_passed = 0;
         }
 
+        //mengecek kondisi menang dan kalah
+        if (aqu.getAccount().win()) {
+            running = false;
+        }
+
         // Gambar ikan di posisi yang tepat.
         clear_screen();
         draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        //draw_text(to_string(sec_since_last), 18, 10, 30, 0, 0, 0);
         
+        // Menampilkan uang
+        draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 500, 30, 0, 0, 0);
+        draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 60, 0, 0, 0);
+
         aqu.moveAll(sec_since_last);
         aqu.showAll();
 

@@ -39,10 +39,10 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
         Guppy g = _l.get(idx_food);
 
         double a = position.patan2(g.getPosition());
-        setDirection(a * 180.0/PI);    
+        int dir = int (a * 180.0/PI) % 360;
+        setDirection(dir); 
         
         if (g.getPosition().isInRadius(position, radius_piranha + Guppy::getRadius_Guppy() * g.getPhase())) {
-            position = g.getPosition();
             count_move = 0;
             return _l.find(g);
         } else {

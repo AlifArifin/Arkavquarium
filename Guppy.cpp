@@ -63,13 +63,12 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
         Food g = _l.get(idx_food);
 
         double a = position.patan2(g.getPosition());
-        
-        setDirection(a * 180.0/PI);
+        int dir = int (a * 180.0/PI) % 360;
+        setDirection(dir);
 
         draw_text(to_string(direction), 18, 15, 30, 0, 0, 0);
 
         if (g.getPosition().isInRadius(position, radius_guppy * phase + Food::getRadius_Food())) {
-            position = g.getPosition();
             count_move = 0;
             return _l.find(g);
         } else {

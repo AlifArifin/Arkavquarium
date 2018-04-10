@@ -3,11 +3,12 @@
 #include "Piranha.hpp"
 #include "Food.hpp"
 
-int Account::money = 0;
+int Account::money = 500;
 const int Account::egg_price = 1000;
 
 //constructor
 Account::Account() {
+    egg_phase = 0;
 }
 //getter
 int Account::getMoney() {
@@ -24,17 +25,46 @@ void Account::addMoney(int val) {
 }
 
 bool Account::buyGuppy() {
-    return money >= Guppy::getValue_Guppy();
+    if (money >= Guppy::getValue_Guppy()) {
+        money -= Guppy::getValue_Guppy();        
+        return true;
+    } else {
+        return false;
+    }
 }
 
 bool Account::buyPiranha() {
-    return money >= Piranha::getValue_Piranha();
+    if (money >= Piranha::getValue_Piranha()) {
+        money -= Piranha::getValue_Piranha();
+        return true;
+    } else {
+        return false;
+    }
 }
 
 bool Account::buyFood() {
-    return money >= Food::getValue_Food();
+    if (money >= Food::getValue_Food()) {
+        money -= Food::getValue_Food();
+        return true;
+    } else {
+        return false;
+    }
 }
 
 bool Account::buyEgg() {
-    return money >= egg_price;
+    if (money >= egg_price) {
+        money -= egg_price;
+        egg_phase++;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Account::win() {
+    return egg_phase == 3;
+}
+
+int Account::getEgg_Phase() {
+    return egg_phase;
 }

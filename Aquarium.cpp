@@ -100,3 +100,7 @@ void Aquarium::moveAll(double time){
 	}
 } //menggerakkan semua summonable yang ada pada aquarium ??GIMANA
 
+Account Aquarium::getAccount() const {
+	return player;
+}
+

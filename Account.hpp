@@ -10,6 +10,7 @@ class Account{
 	private :
 		static int money;
 		static const int egg_price;
+		int egg_phase;
 
 	public :
 
@@ -18,12 +19,14 @@ class Account{
 		
 		//getter
 		static int getMoney();
+		int getEgg_Phase();
 
 		//setter
 		static void setMoney(int);
 		
 		//method
 		static void addMoney(int);
+		bool win();
 		bool buyGuppy();
 		bool buyPiranha();
 		bool buyFood();
