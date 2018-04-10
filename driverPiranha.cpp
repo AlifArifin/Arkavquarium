@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Guppy.hpp"
+#include "Piranha.hpp"
 #include "Point.hpp"
 
 using namespace std;
