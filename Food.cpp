@@ -24,7 +24,7 @@ int Food::getValue_Food() {
 /*Method*/
 bool Food::move(const Matrix& m, double time) { //untuk pergerakan food
     if (!position.isOutBottom(m, radius_food)) {
-        position.setY(position.getX() + speed * time);
+        position.setY(position.getY() + speed * time);
         return position.isOutBottom(m, radius_food);
     } else {
         return false;
