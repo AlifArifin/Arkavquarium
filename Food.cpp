@@ -2,12 +2,12 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-const int food_speed = 5;
-const int value_food = 10;
+const int Food::speed_food = 5;
+const int Food::value_food = 10;
 
 /*Sekawan*/
-Food::Food(Point P) : Summonable("food", food_speed, P) {
-    direction = 3*M_PI/4;
+Food::Food(Point P) : Summonable("food", speed_food, P) {
+    direction = 270;
 }
 
 Food::~Food() {} //destructor sekalian untuk menambah koin pemain
@@ -39,6 +39,6 @@ void Food::show() { //untuk display food
 
 }
 
-bool Food::operator== (const Food& F) const {
-    return (F.id == id);
+bool Food::operator==(const Food& f) const {
+    return f.position == position && f.direction == direction;
 }

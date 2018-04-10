@@ -3,8 +3,8 @@
 #include "Piranha.hpp"
 #include "Food.hpp"
 
-int money = 0;
-const int egg_price = 1000;
+int Account::money = 0;
+const int Account::egg_price = 1000;
 
 //constructor
 Account::Account() {

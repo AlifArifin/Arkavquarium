@@ -5,13 +5,11 @@
 
 using namespace std;
 
-const double PI = 3.14159265;
-int Summonable::id_count = 1;
+const double Summonable::PI = 3.14159265;
 
 /*Sekawan*/
-Summonable::Summonable(string _j, int _s, Point _p) : id(id_count), speed(_s), jenis(_j), position(_p) {
+Summonable::Summonable(string _j, int _s, Point _p) : speed(_s), jenis(_j), position(_p) {
     //menerima id, jenis, speed, dan lokasi spawn
-    id_count ++;
     direction = 0;         
 }
 
@@ -31,14 +29,6 @@ int Summonable::getSpeed() const{
     return speed;
 }
         
-int Summonable::getId_Count(){
-    return id_count;
-}
-        
-int Summonable::getId() const{
-    return id;
-}
-
 /*Setter*/
 void Summonable::setPosition(const Point& p){
     position = p;

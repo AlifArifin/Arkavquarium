@@ -16,8 +16,6 @@ class Summonable {
         Point getPosition() const;
         int getDirection() const;
         int getSpeed() const;
-        static int getId_Count();
-        int getId() const;
 
         /*Setter*/
         void setPosition(const Point&);
@@ -28,11 +26,9 @@ class Summonable {
         
     protected:
         Point position; //mencatat posisi dari summonable pada point
-        double direction;  //direction harus berada pada angka 0 <= direction <= 360        
-        const int speed; //kecepatan dari Summonable
-        static int id_count; //mencatat jumlah summonable yang telah diconstruct (untuk pencatatan id)
-        const int id; //mencatat id setiap summonable
-        const string jenis; //menunjukkan jenis dari summonable
+        int direction;  //direction harus berada pada angka 0 <= direction <= 360        
+        int speed; //kecepatan dari Summonable
+        string jenis; //menunjukkan jenis dari summonable
         static const double PI;
 };
 

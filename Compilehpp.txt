@@ -1,0 +1,1 @@
+g++ Account.hpp Aquarium.hpp Coin.hpp Fish.hpp Food.hpp Guppy.hpp ListObj.hpp Matrix.hpp Piranha.hpp Point.hpp Snail.hpp Summonable.hpp

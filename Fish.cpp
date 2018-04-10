@@ -6,9 +6,9 @@
 
 using namespace std;
 
-const int hunger_time = 10;
-const int dead_time = 20;
-const int speed_fish = 8;
+const int Fish::hunger_time = 10;
+const int Fish::dead_time = 20;
+const int Fish::speed_fish = 8;
 
 Fish::Fish(string _j, int _v, Point _p) : Summonable(_j, speed_fish, _p), value(_v) {
     hungry = false;
@@ -58,4 +58,8 @@ void Fish::setCount_Move(int _c) {
 
 void Fish::setChange_Move() {
     change_move = rand() % 45 + 5;
+}
+
+int Fish::getValue() const {
+    return value;
 }

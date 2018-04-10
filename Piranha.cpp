@@ -35,7 +35,7 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m) {
             Guppy g = _l.get(idx_food);
             if (closest_food <= speed_fish) {
                 position = g.getPosition();
-                return g.getId();
+                return _l.find(g);
             } else {
                 double a = position.patan2(g.getPosition());
                 position.setX(int(floor(position.getX() + speed_fish * cos(a))));
@@ -47,26 +47,27 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m) {
     } else {
         count_move++;
 
-        position.setX(int(floor(position.getX() + speed_fish * cos(direction))));
-        position.setY(int(floor(position.getX() + speed_fish * sin(direction))));
+        double rad = PI/180 * direction;
+        position.setX(int(floor(position.getX() + speed_fish * cos(rad))));
+        position.setY(int(floor(position.getX() + speed_fish * sin(rad))));
 
         if (position.isOutLeft(m)) {
             position.setY(0);
             count_move = 0;
-            direction = rand() % 100 / 100.0 * PI - (PI/2);
+            direction = rand() % 180 % 360;
         } else if (position.isOutRight(m)) {
             position.setY(m.getColumn() - 1);
             count_move = 0;
-            direction = rand() % 100 / 100.0 * PI + (PI/2);
+            direction = rand() % 180 + 90;
         }
         
         if (position.isOutTop(m)) {
             position.setX(0);
             count_move = 0;
-            direction = rand() % 100 / 100.0 * PI + PI;
+            direction = rand() % 180 + 180;
         } else if (position.isOutBottom(m)) {
             count_move = 0;
-            direction = rand() % 100 / 100.0 * PI;
+            direction = rand() % 180;
         }
 
         return -1;
@@ -93,5 +94,5 @@ int Piranha::getValue_Piranha() {
 }
 
 bool Piranha::operator==(const Piranha& p) const {
-    return id == p.id;
+    return p.hungry == hungry && p.count_move == p.count_move && change_move == p.change_move && position == p.position &&direction == p.direction;
 }

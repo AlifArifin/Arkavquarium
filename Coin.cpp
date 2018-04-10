@@ -7,14 +7,8 @@ const int coin_speed = 5;
 
 /*Sekawan*/
 Coin::Coin(Point P, int _val) : Summonable("coin", coin_speed, P), value(_val) {
-    direction = 3*M_PI/4;
+    direction = 270;
 }
-
-Coin::Coin(const Coin& C) : Summonable("coin", coin_speed, C.position), value(C.value){ 
-    direction = C.direction;
-}
-
-
 
 Coin::~Coin() { //destructor sekalian untuk menambah koin pemain
     
@@ -38,6 +32,7 @@ void Coin::move(const Matrix &M) { //untuk pergerakkan koin
 
 void Coin::show() {} //untuk menampilkan koin
 
-bool Coin::operator== (const Coin& C) const { //overload operator==
-    return (C.id == id);
+bool Coin::operator== (const Coin& c) const {
+    return c.value == value && c.position == position && direction == c.direction;
 }
+

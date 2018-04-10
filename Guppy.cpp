@@ -6,10 +6,10 @@
 
 using namespace std;
 
-const int coin_time = 5;
-const int grow_time = 2;
-const int value_guppy = 100;  
-const int value_coin = 10;
+const int Guppy::coin_time = 5;
+const int Guppy::grow_time = 2;
+const int Guppy::value_guppy = 100;  
+const int Guppy::value_coin = 10;
 
 /*Sekawan*/
 Guppy::Guppy(Point _p) : Fish("guppy", value_guppy, _p) {
@@ -56,7 +56,8 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m) {
             Food g = _l.get(idx_food);
             if (closest_food <= speed_fish) {
                 position = g.getPosition();
-                return g.getId();
+                
+                return _l.find(g);
             } else {
                 double a = position.patan2(g.getPosition());
                 position.setX(int(floor(position.getX() + speed_fish * cos(a))));
@@ -112,7 +113,7 @@ void Guppy::eat() {
     }
 }
 
-void show() {
+void Guppy::show() {
 
 }
 
@@ -129,6 +130,6 @@ int Guppy::getValue_Guppy() {
     return value_guppy;
 }
 
-bool Guppy::operator==(const Guppy& g) const {
-    return id == g.id;
+bool Guppy::operator==(const Guppy& g1) const {
+    return g1.phase == phase && g1.food_count == food_count && g1.hungry == hungry && g1.count_move == g1.count_move && change_move == g1.change_move && position == g1.position && direction == g1.direction;
 }
