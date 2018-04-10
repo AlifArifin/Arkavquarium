@@ -184,7 +184,7 @@ class ListObj {
             }
         }
 
-        T removeIdx(int id) {
+        T& removeIdx(int id) {
             Obj<T> *temp = first;
             Obj<T> *prev = NULL;
 
@@ -209,7 +209,7 @@ class ListObj {
             }
         }
         
-        T deleteMid(const T& _obj) {
+        T& deleteMid(const T& _obj) {
             bool found = false;
             Obj<T> *current = first;
             Obj<T> *previous = NULL;
@@ -228,7 +228,7 @@ class ListObj {
             return o;
         } 
 
-        T deleteFirst() {
+        T& deleteFirst() {
             T o = first->getInfo();
             Obj<T> *temp = first;
             first = first -> next;
@@ -236,7 +236,7 @@ class ListObj {
             return o;
         }
 
-        T deleteLast() {
+        T& deleteLast() {
             Obj<T> *current = first;
             Obj<T> *previous = NULL;
             current = first;
@@ -255,7 +255,7 @@ class ListObj {
         
         //mengembalikan elemen dengan tipe T pada indeks sesuai parameter
         //asumsi indeks posisi selalu valid
-        T get(int pos) const {
+        T& get(int pos) const {
             int idx = 0;
             Obj<T> *current = first;
             while (current != NULL && idx < pos) {

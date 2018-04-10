@@ -19,6 +19,7 @@ class Guppy : public Fish{
         int getFood_Count() const;
         static int getValue_Guppy();
         static int getRadius_Guppy();
+        string getImage();
 
         /*Setter*/
         void setPhase(int);

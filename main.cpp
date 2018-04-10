@@ -2,6 +2,7 @@
 #include <iostream>
 #include <math.h>
 #include <sstream>
+#include <string>
 #include "Aquarium.hpp"
 #include "Matrix.hpp"
 #include "Summonable.hpp"
@@ -28,11 +29,11 @@ int main( int argc, char* args[] )
     bool running = true;
 
     // Inisiasi game
-    Aquarium aquarium();
-    Point p1(100,100);
-    Guppy g1();
+    Aquarium aqu;
+    Point p1(250,250);
+    Guppy g1(p1);
 
-    aquarium.add(g1);
+    aqu.add(g1);
 
     double prevtime = time_since_start();
 
@@ -61,31 +62,11 @@ int main( int argc, char* args[] )
         clear_screen();
         draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        draw_text(fps_text, 18, 10, 30, 0, 0, 0);
+        //draw_text(to_string(sec_since_last), 18, 10, 30, 0, 0, 0);
         
-        aquarium.moveAll(sec_since_last);
+        aqu.moveAll(sec_since_last);
+        aqu.showAll();
 
-        for (int i = 0; i < list_food.size(); i++) {
-            draw_image(list_food.get(i).image(), list_food.get(i).getPosition().getX(), list_food.get(i).getPosition().getX());
-        }
-        
-        for (int i = 0; i < list_guppy.size(); i++) {
-            draw_image(list_guppy.get(i).image(), list_guppy.get(i).getPosition().getX(), list_guppy.get(i).getPosition().getX());
-        }
-        
-        for (int i = 0; i < list_piranha.size(); i++) {
-            draw_image(list_piranha.get(i).image(), list_piranha.get(i).getPosition().getX(), list_piranha.get(i).getPosition().getX());
-        }
-        
-        for (int i = 0; i < list_coin.size(); i++) {
-            draw_image(list_coin.get(i).image(), list_coin.get(i).getPosition().getX(), list_coin.get(i).getPosition().getX());
-        }
-
-        for (int i = 0; i < list_snail.size(); i++) {
-            draw_image(list_snail.get(i).image(), list_snail.get(i).getPosition().getX(), list_snail.get(i).getPosition().getX());
-        }
-
-        
         update_screen();
     }
 

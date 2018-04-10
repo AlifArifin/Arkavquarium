@@ -61,7 +61,7 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
         if (position.isOutLeft(m, radius_piranha)) {
             position.setY(radius_piranha);
             count_move = 0;
-            direction = rand() % 180 % 360;
+            direction = (rand() % 180 - 90 ) % 360;
         } else if (position.isOutRight(m, radius_piranha)) {
             position.setY(m.getColumn() - 1 - radius_piranha);
             count_move = 0;
@@ -126,3 +126,6 @@ void Piranha::setDirection(int d) {
     direction = d;
 }
 
+string Piranha::getImage() {
+    return image;
+}

@@ -1,5 +1,5 @@
 # Masukkan semua file cpp Anda
-OBJS = main.cpp oop.cpp
+OBJS = main.cpp oop.cpp Account.cpp Aquarium.cpp Coin.cpp Fish.cpp Food.cpp Guppy.cpp ListObj.hpp Matrix.cpp Piranha.cpp Point.cpp Snail.cpp Summonable.cpp
 
 CC = g++
 COMPILER_FLAGS = -std=c++11 -Wall -O2
