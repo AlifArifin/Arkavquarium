@@ -42,28 +42,28 @@ double Point::distanceTo(const Point& p){
     return sqrt((p.x  - this->x) * (p.x  - this->x) + (p.y  -  this->y) * (p.y  -  this->y));
 }
 
-bool Point::isBottom(const Matrix& m) {
-    return x == m.getRow() -1;
+bool Point::isBottom(const Matrix& m, int r) {
+    return int(x) == m.getRow() - 1 - r;
 }
 
-bool Point::isOutBottom(const Matrix& m) {
+bool Point::isOutBottom(const Matrix& m, int r) {
     //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
-    return x > m.getRow()-1; 
+    return int(x) > m.getRow() - 1 - r; 
 }
 
-bool Point::isOutTop(const Matrix& m){
+bool Point::isOutTop(const Matrix& m, int r){
     //untuk mengecek apakah summonable terdapat di atas aquarium
-    return x < 0;
+    return int(x) < r;
 }
 
-bool Point::isOutRight(const Matrix& m){ 
+bool Point::isOutRight(const Matrix& m, int r){ 
     //untuk mengecek apakah summonable terdapat di kanan aquarium
-    return y > m.getColumn()-1;
+    return int(y) > m.getColumn() - 1 - r;
 }
 
-bool Point::isOutLeft(const Matrix& m){
+bool Point::isOutLeft(const Matrix& m, int r){
     //untuk mengecek apakah summonable terdapat di kiri aquarium
-    return y < 0;
+    return int(y) < r;
 }       
 double Point::patan2(const Point& p) {
     return atan2(p.y - y, p.x - x); 
@@ -73,4 +73,8 @@ bool Point::operator==(const Point& p) const {
     int absis = (int)x;
     int ordinat = (int)y;
     return absis == (int)p.x && ordinat == (int)p.y;
+}
+
+bool Point::isInRadius(const Point& p , int r) {
+    return int(sqrt((p.x  - this->x) * (p.x  - this->x) + (p.y  -  this->y) * (p.y  -  this->y))) <= r;
 }

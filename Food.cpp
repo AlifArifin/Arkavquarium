@@ -4,6 +4,7 @@
 
 const int Food::speed_food = 5;
 const int Food::value_food = 10;
+const int Food::radius_food = 5;
 
 /*Sekawan*/
 Food::Food(Point P) : Summonable("food", speed_food, P) {
@@ -20,16 +21,10 @@ int Food::getValue_Food() {
 /*Setter*/
 
 /*Method*/
-bool Food::move(const Matrix& m) { //untuk pergerakan food
-    if (!position.isBottom(m)) {
-        Point newPos(position.getX(), position.getY() + speed);
-        if (newPos.isOutBottom(m)) {
-            newPos.setY(m.getRow()-1);
-            position = newPos;
-        } else {
-            position = newPos;
-        }
-        return true;
+bool Food::move(const Matrix& m, double time) { //untuk pergerakan food
+    if (!position.isOutBottom(m, radius_food)) {
+        position.setY(position.getX() + speed * time);
+        return position.isOutBottom(m, radius_food);
     } else {
         return false;
     }
@@ -42,3 +37,8 @@ void Food::show() { //untuk display food
 bool Food::operator==(const Food& f) const {
     return f.position == position && f.direction == direction;
 }
+
+int Food::getRadius_Food() {
+    return radius_food;
+}
+

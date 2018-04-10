@@ -17,13 +17,14 @@ class Guppy : public Fish{
         static int getCoin_Time();
         int getFood_Count() const;
         static int getValue_Guppy();
+        static int getRadius_Guppy();
 
         /*Setter*/
         void setPhase(int);
         void setFood_Count(int);
         
         /*Method*/
-        int move(const ListObj<Food>&, const Matrix&); //untuk pergerakkan Guppy    
+        int move(const ListObj<Food>&, const Matrix&, double); //untuk pergerakkan Guppy    
         Coin dropCoin(); //untuk menghasilkan koin
         void eat(); //untuk makan
         void show(); //untuk display guppy
@@ -36,6 +37,7 @@ class Guppy : public Fish{
         const static int value_guppy;   //harga guppy
         const static int value_coin; //value coin yang dihasilkan guppy
         const static int grow_time;
+        const static int radius_guppy;
 };
 
 #endif

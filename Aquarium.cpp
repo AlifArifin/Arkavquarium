@@ -44,14 +44,14 @@ void Aquarium::showAll(){
 		list_coin.get(i).show();
 	}
 }//menampilkan semua summonable yang ada pada aquarium ??GIMANA
-void Aquarium::moveAll(){
+void Aquarium::moveAll(double time){
 	
 	for (int i = 0; i < list_food.size(); i++) {
-		list_food.get(i).move(aquarium_matrix);
+		list_food.get(i).move(aquarium_matrix, time);
 	}
 	
 	for (int i = 0; i < list_guppy.size(); i++) {
-		int idx = list_guppy.get(i).move(list_food, aquarium_matrix);
+		int idx = list_guppy.get(i).move(list_food, aquarium_matrix, time);
 
 		if (idx != -1) {
 			Food f = list_food.removeIdx(idx);
@@ -63,7 +63,7 @@ void Aquarium::moveAll(){
 	}
 	
 	for (int i = 0; i < list_piranha.size(); i++) {
-		int idx = list_piranha.get(i).move(list_guppy, aquarium_matrix);
+		int idx = list_piranha.get(i).move(list_guppy, aquarium_matrix, time);
 
 		if (idx != -1) {
 			Guppy g = list_guppy.removeIdx(idx);
@@ -78,11 +78,11 @@ void Aquarium::moveAll(){
 	}
 	
 	for (int i = 0; i < list_coin.size(); i++) {
-		list_coin.get(i).move(aquarium_matrix);
+		list_coin.get(i).move(aquarium_matrix, time);
 	}
 
 	for (int i = 0; i < list_snail.size(); i++) {
-		int idx = list_snail.get(i).move(list_coin);
+		int idx = list_snail.get(i).move(list_coin, time);
 
 		if (idx != -1) {
 			Coin c = list_coin.removeIdx(idx);

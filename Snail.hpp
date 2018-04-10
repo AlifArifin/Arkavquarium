@@ -16,16 +16,18 @@ class Snail : public Summonable{
 
         /*Getter*/
         static int getSpeed_Snail();
+        static int getRadius_Snail();
 
         /*Setter*/
 
         /*Method*/
-        int move(const ListObj<Coin>&); //untuk pergerakan snail
+        int move(const ListObj<Coin>&, double); //untuk pergerakan snail
         void show(); //untuk display snail
         bool operator==(const Snail&) const;
 
     private:
         static const int speed_snail; //mencatat kecepatan untuk Snail
+        static const int radius_snail;
 };
 
 #endif

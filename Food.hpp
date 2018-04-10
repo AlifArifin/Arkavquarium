@@ -14,17 +14,19 @@ class Food : public Summonable {
 
         /*Getter*/
         static int getValue_Food();
+        static int getRadius_Food();
 
         /*Setter*/
 
         /*Method*/
-        bool move(const Matrix &m); //untuk pergerakan food
+        bool move(const Matrix&, double); //untuk pergerakan food
         void show(); //untuk display food
         bool operator==(const Food&) const;
 
     private:
         static const int value_food; //harga makanan
         static const int speed_food;
+        static const int radius_food;
 };
 
 #endif
