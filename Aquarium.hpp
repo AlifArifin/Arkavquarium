@@ -48,6 +48,7 @@ class Aquarium {
         void del(Food&); //menghapus Food dari dalam aquarium
         void showAll(); //menampilkan semua summonable yang ada pada aquarium
         void moveAll(double); //menggerakkan semua summonable yang ada pada aquarium
+        bool lose();
 
     private:
         ListObj<Guppy> list_guppy; //list menyimpan Guppy yang ada di dalam aquarium

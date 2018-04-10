@@ -2,13 +2,14 @@
 #include "Guppy.hpp"
 #include "Piranha.hpp"
 #include "Food.hpp"
+#include "oop.hpp"
 
 int Account::money = 20000;
 const int Account::egg_price = 1000;
+int Account::egg_phase = 0;
 
 //constructor
 Account::Account() {
-    egg_phase = 0;
 }
 //getter
 int Account::getMoney() {
@@ -54,7 +55,7 @@ bool Account::buyFood() {
 bool Account::buyEgg() {
     if (money >= egg_price) {
         money -= egg_price;
-        egg_phase++;
+        egg_phase = egg_phase + 1;
         return true;
     } else {
         return false;
@@ -62,7 +63,7 @@ bool Account::buyEgg() {
 }
 
 bool Account::win() {
-    return egg_phase == 3;
+    return egg_phase >= 3;
 }
 
 int Account::getEgg_Phase() {

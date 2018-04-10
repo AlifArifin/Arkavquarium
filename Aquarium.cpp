@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-Aquarium::Aquarium() : list_guppy(), list_coin(), list_food(), list_piranha(), list_snail(){}
+Aquarium::Aquarium() : list_guppy(), list_coin(), list_food(), list_piranha(), list_snail(), player(), aquarium_matrix(){}
 
 ListObj<Guppy> Aquarium::getList_Guppy() const{return list_guppy;}
 ListObj<Piranha> Aquarium::getList_Piranha() const{return list_piranha;}
@@ -116,5 +116,9 @@ void Aquarium::moveAll(double time){
 
 Account Aquarium::getAccount() const {
 	return player;
+}
+
+bool Aquarium::lose() {
+	return list_guppy.isEmpty() && list_piranha.isEmpty() && list_coin.isEmpty() && Account::getMoney() < Guppy::getValue_Guppy();
 }
 

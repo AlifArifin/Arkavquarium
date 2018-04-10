@@ -43,6 +43,9 @@ int main( int argc, char* args[] )
 
     double prevtime = time_since_start();
 
+    //SDL Event struct
+    SDL_Event event; 
+
     while (running) {
         srand(time(NULL));
         double now = time_since_start();
@@ -65,7 +68,7 @@ int main( int argc, char* args[] )
                     Guppy gtemp(ptemp);
                     aqu.add(gtemp);
                 } else {
-
+                    
                 }
                 break;
             case SDLK_2:    //beli 
@@ -105,22 +108,30 @@ int main( int argc, char* args[] )
         //mengecek kondisi menang dan kalah
         if (aqu.getAccount().win()) {
             running = false;
+            draw_image("win.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         }
+
+        if (aqu.lose()) {
+            running = false;
+            draw_image("lose.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+        } 
 
         // Gambar ikan di posisi yang tepat.
         clear_screen();
         draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-        draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         
         // Menampilkan uang
         draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 500, 10, 0, 0, 0);
         draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 40, 0, 0, 0);
+        draw_text(to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 70, 0, 0, 0);
 
         aqu.moveAll(sec_since_last);
         aqu.showAll();
 
         update_screen();
     }
+
+    clear_screen();
 
     close();
 
