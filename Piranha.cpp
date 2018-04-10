@@ -6,10 +6,12 @@
 
 using namespace std;
 
-const int Piranha::value_piranha = 100;
-const int Piranha::radius_piranha = 5;
+const int Piranha::value_piranha = 300;
+const int Piranha::radius_piranha = 35;
+const string Piranha::array_image = {"LPiranha.png", "RPiranha.png"};
 
 Piranha::Piranha(Point _p) : Fish("piranha", value_piranha, _p) {
+    image = array_image[0];
 }
 
 int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
@@ -35,22 +37,27 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
         }
 
         Guppy g = _l.get(idx_food);
+
+        double a = position.patan2(g.getPosition());
+        setDirection(a * 180.0/PI);    
         
-        if (g.getPosition().isInRadius(position, radius_piranha + Guppy::getRadius_Guppy())) {
+        if (g.getPosition().isInRadius(position, radius_piranha + Guppy::getRadius_Guppy() * g.getPhase())) {
             position = g.getPosition();
             count_move = 0;
             return _l.find(g);
         } else {
-            double a = position.patan2(g.getPosition());
             position.setX(position.getX() + speed_fish * cos(a) * time);
             position.setY(position.getY() + speed_fish * sin(a) * time);
             return -1;
         }
     } else {
         double rad = PI/180 * direction;
+
+        setDirection(direction);    
+        
         position.setX(position.getX() + speed_fish * cos(rad) * time);
         position.setY(position.getX() + speed_fish * sin(rad) * time);
-
+        
         if (position.isOutLeft(m, radius_piranha)) {
             position.setY(radius_piranha);
             count_move = 0;
@@ -101,3 +108,14 @@ bool Piranha::operator==(const Piranha& p) const {
 int Piranha::getRadius_Piranha() {
     return radius_piranha;
 }
+
+void Piranha::setDirection(int d) {
+    if (d >= 90 && d <= 270) {
+        image = array_image[0];
+    } else {
+        image = array_image[1];
+    }
+
+    direction = d;
+}
+

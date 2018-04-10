@@ -15,6 +15,7 @@ class Food : public Summonable {
         /*Getter*/
         static int getValue_Food();
         static int getRadius_Food();
+        static string getImage();
 
         /*Setter*/
 
@@ -27,6 +28,7 @@ class Food : public Summonable {
         static const int value_food; //harga makanan
         static const int speed_food;
         static const int radius_food;
+        static const string image;
 };
 
 #endif

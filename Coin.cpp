@@ -3,8 +3,9 @@
 
 #include <math.h>
 
-const int Coin::speed_coin = 5;
-const int Coin::radius_coin = 5;
+const int Coin::speed_coin = 30;
+const int Coin::radius_coin = 20;
+const string Coin::image = "Coin.png"
 
 /*Sekawan*/
 Coin::Coin(Point P, int _val) : Summonable("coin", speed_coin, P), value(_val) {
@@ -39,5 +40,9 @@ void Coin::show() {} //untuk menampilkan koin
 
 bool Coin::operator== (const Coin& c) const {
     return c.value == value && c.position == position && direction == c.direction;
+}
+
+string Coin::getImage() {
+    return image;
 }
 

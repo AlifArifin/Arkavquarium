@@ -2,9 +2,10 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-const int Food::speed_food = 5;
+const int Food::speed_food = 30;
 const int Food::value_food = 10;
-const int Food::radius_food = 5;
+const int Food::radius_food = 20;
+const string Food::image = "Food.png";
 
 /*Sekawan*/
 Food::Food(Point P) : Summonable("food", speed_food, P) {
@@ -42,3 +43,6 @@ int Food::getRadius_Food() {
     return radius_food;
 }
 
+string Food::getImage() {
+    return image;
+}

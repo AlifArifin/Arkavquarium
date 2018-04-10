@@ -2,19 +2,6 @@
 #include <iostream>
 #include <math.h>
 #include <sstream>
-#include "Aquarium.hpp"
-#include "Matrix.hpp"
-#include "Summonable.hpp"
-#include "Account.hpp"
-#include "Coin.hpp"
-#include "Fish.hpp"
-#include "Guppy.hpp"
-#include "Piranha.hpp"
-#include "ListObj.hpp"
-#include "Point.hpp"
-#include "Snail.hpp"
-
-using namespace std;
 
 const double speed = 50; // pixels per second
 
@@ -32,8 +19,6 @@ int main( int argc, char* args[] )
     double cx = SCREEN_WIDTH / 2;
 
     bool running = true;
-
-    // Inisiasi game
 
     double prevtime = time_since_start();
 
@@ -95,7 +80,6 @@ int main( int argc, char* args[] )
 
         // Gambar ikan di posisi yang tepat.
         clear_screen();
-        draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         draw_text(fps_text, 18, 10, 30, 0, 0, 0);
         draw_image("ikan.png", cx, cy);

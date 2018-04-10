@@ -15,6 +15,7 @@ class Coin : public Summonable {
         /*Getter*/
         static int getRadius_Coin();
         static int getSpeed_Coin();
+        static string getImage();
 
         /*Setter*/
 
@@ -27,6 +28,7 @@ class Coin : public Summonable {
         const int value;
         static const int radius_coin;
         static const int speed_coin;
+        static const string image;
 };
 
 #endif

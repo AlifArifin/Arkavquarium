@@ -8,7 +8,7 @@ using namespace std;
 
 const int Fish::hunger_time = 10;
 const int Fish::dead_time = 20;
-const int Fish::speed_fish = 8;
+const int Fish::speed_fish = 45;
 
 Fish::Fish(string _j, int _v, Point _p) : Summonable(_j, speed_fish, _p), value(_v) {
     hungry = false;

@@ -3,11 +3,13 @@
 
 using namespace std;
 
-const int Snail::speed_snail = 10;
-const int Snail::radius_snail = 4;
+const int Snail::speed_snail = 20;
+const int Snail::radius_snail = 40;
+const string Snail::array_image = {"LSnail.png", "RSnail.png"};
 
 /*Sekawan*/
 Snail::Snail(Point p) : Summonable("snail", speed_snail, p){ 
+    image = array_image[0];
 }
 
 /*Getter*/
@@ -33,6 +35,9 @@ int Snail::move(const ListObj<Coin>& _l, double time){
 
         Coin c = _l.get(idx_coin);
 
+        double a = position.patan2(c.getPosition());
+        setDirection(a * 180.0/PI);
+
         if (position.isInRadius(c.getPosition(), Coin::getRadius_Coin() + radius_snail)) {
             return _l.find(c);
         } else if (position.getX() == c.getPosition().getX()) {
@@ -56,4 +61,17 @@ int Snail::getRadius_Snail() {
     return radius_snail;
 }
 
+string Snail::getImage() const {
+    return image;
+}
+
+void Snail::setDirection(int d) {
+    if (d >= 90 && d <= 270) {
+        direction = 180;
+        image = array_image[0];
+    } else {
+        direction = 0;
+        image = array_image[1];
+    }
+}
 

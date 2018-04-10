@@ -17,8 +17,10 @@ class Snail : public Summonable{
         /*Getter*/
         static int getSpeed_Snail();
         static int getRadius_Snail();
+        string getImage() const;
 
         /*Setter*/
+        void setDirection(int);
 
         /*Method*/
         int move(const ListObj<Coin>&, double); //untuk pergerakan snail
@@ -28,6 +30,8 @@ class Snail : public Summonable{
     private:
         static const int speed_snail; //mencatat kecepatan untuk Snail
         static const int radius_snail;
+        static const string array_image[2];
+        string image;
 };
 
 #endif

@@ -10,7 +10,7 @@ const double Summonable::PI = 3.14159265;
 /*Sekawan*/
 Summonable::Summonable(string _j, int _s, Point _p) : speed(_s), jenis(_j), position(_p) {
     //menerima id, jenis, speed, dan lokasi spawn
-    direction = 0;         
+    direction = rand() % 360;         
 }
 
 /*Destructor*/

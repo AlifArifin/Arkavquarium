@@ -17,9 +17,11 @@ class Piranha : public Fish{
         /*Getter*/
         static int getValue_Piranha();
         static int getRadius_Piranha();
+        string getImage();
 
         /*Setter*/
-        
+        void setDirection(int);
+
         /*Method*/
         int move(const ListObj<Guppy>&, const Matrix&, double); //untuk pergerakkan Piranha    
         void eat(); //untuk dan makan menghasilkan koin
@@ -29,6 +31,8 @@ class Piranha : public Fish{
     private:
         static const int value_piranha; //harga ikan piranha
         static const int radius_piranha;
+        static const string array_image[4];
+        string image;
 };
 
 #endif
