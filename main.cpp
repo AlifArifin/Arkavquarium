@@ -16,8 +16,6 @@
 
 using namespace std;
 
-const double speed = 50; // pixels per second
-
 int main( int argc, char* args[] )
 {
     init();
@@ -27,13 +25,14 @@ int main( int argc, char* args[] )
     double fpc_start = time_since_start();
     std::string fps_text = "FPS: 0";
 
-    // Posisi ikan
-    double cy = SCREEN_HEIGHT / 2;
-    double cx = SCREEN_WIDTH / 2;
-
     bool running = true;
 
     // Inisiasi game
+    Aquarium aquarium();
+    Point p1(100,100);
+    Guppy g1();
+
+    aquarium.add(g1);
 
     double prevtime = time_since_start();
 
@@ -45,41 +44,6 @@ int main( int argc, char* args[] )
         handle_input();
         if (quit_pressed()) {
             running = false;
-        }
-
-        // Gerakkan ikan selama tombol panah ditekan
-        // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
-        // konstan pada komputer yang berbeda.
-        for (auto key : get_pressed_keys()) {
-            switch (key) {
-            case SDLK_UP:
-                cy -= speed * sec_since_last;
-                break;
-            case SDLK_DOWN:
-                cy += speed * sec_since_last;
-                break;
-            case SDLK_LEFT:
-                cx -= speed * sec_since_last;
-                break;
-            case SDLK_RIGHT:
-                cx += speed * sec_since_last;
-                break;
-            }
-        }
-
-        // Proses masukan yang bersifat "tombol"
-        for (auto key : get_tapped_keys()) {
-            switch (key) {
-            // r untuk reset
-            case SDLK_r:
-                cy = SCREEN_HEIGHT / 2;
-                cx = SCREEN_WIDTH / 2;
-                break;
-            // x untuk keluar
-            case SDLK_x:
-                running = false;
-                break;
-            }
         }
 
         // Update FPS setiap detik
@@ -98,7 +62,30 @@ int main( int argc, char* args[] )
         draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         draw_text(fps_text, 18, 10, 30, 0, 0, 0);
-        draw_image("ikan.png", cx, cy);
+        
+        aquarium.moveAll(sec_since_last);
+
+        for (int i = 0; i < list_food.size(); i++) {
+            draw_image(list_food.get(i).image(), list_food.get(i).getPosition().getX(), list_food.get(i).getPosition().getX());
+        }
+        
+        for (int i = 0; i < list_guppy.size(); i++) {
+            draw_image(list_guppy.get(i).image(), list_guppy.get(i).getPosition().getX(), list_guppy.get(i).getPosition().getX());
+        }
+        
+        for (int i = 0; i < list_piranha.size(); i++) {
+            draw_image(list_piranha.get(i).image(), list_piranha.get(i).getPosition().getX(), list_piranha.get(i).getPosition().getX());
+        }
+        
+        for (int i = 0; i < list_coin.size(); i++) {
+            draw_image(list_coin.get(i).image(), list_coin.get(i).getPosition().getX(), list_coin.get(i).getPosition().getX());
+        }
+
+        for (int i = 0; i < list_snail.size(); i++) {
+            draw_image(list_snail.get(i).image(), list_snail.get(i).getPosition().getX(), list_snail.get(i).getPosition().getX());
+        }
+
+        
         update_screen();
     }
 
