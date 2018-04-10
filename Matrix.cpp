@@ -3,8 +3,8 @@
 
 using namespace std;
 
-const int Matrix::row = 10;
-const int Matrix::column = 10;
+const int Matrix::row = 480;
+const int Matrix::column = 640;
 
 Matrix::Matrix(){
 	data = new int*[row];
