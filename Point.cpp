@@ -43,27 +43,27 @@ double Point::distanceTo(const Point& p){
 }
 
 bool Point::isBottom(const Matrix& m, int r) {
-    return int(x) == m.getRow() - 1 - r;
+    return int(y) == m.getRow() - 1 - r;
 }
 
 bool Point::isOutBottom(const Matrix& m, int r) {
     //untuk mengecek apakah summonable terdapat di bawah aquarium (untuk food dan coin)
-    return int(x) > m.getRow() - 1 - r; 
+    return int(y) > m.getRow() - 1 - r; 
 }
 
 bool Point::isOutTop(const Matrix& m, int r){
     //untuk mengecek apakah summonable terdapat di atas aquarium
-    return int(x) < r;
+    return int(y) < r;
 }
 
 bool Point::isOutRight(const Matrix& m, int r){ 
     //untuk mengecek apakah summonable terdapat di kanan aquarium
-    return int(y) > m.getColumn() - 1 - r;
+    return int(x) > m.getColumn() - 1 - r;
 }
 
 bool Point::isOutLeft(const Matrix& m, int r){
     //untuk mengecek apakah summonable terdapat di kiri aquarium
-    return int(y) < r;
+    return int(x) < r;
 }       
 double Point::patan2(const Point& p) {
     return atan2(p.y - y, p.x - x); 
