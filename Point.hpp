@@ -8,15 +8,15 @@ using namespace std;
 class Point {
     public:
         /*Sekawan*/
-        Point(int, int);
+        Point(double, double);
 
         /*Getter*/
-        int getX() const;
-        int getY() const;
+        double getX() const;
+        double getY() const;
 
         /*Setter*/
-        void setX(int);
-        void setY(int);
+        void setX(double);
+        void setY(double);
 
         /*Method*/
         Point& operator+(const Point&); //menambah this->point dengan point pada parameter
@@ -30,7 +30,7 @@ class Point {
         bool operator==(const Point&) const;
 
     private:
-        int x, y;
+        double x, y;
 };
 
 #endif
