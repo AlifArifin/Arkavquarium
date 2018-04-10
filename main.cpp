@@ -32,12 +32,14 @@ int main( int argc, char* args[] )
     srand(time(NULL));
     
     Aquarium aqu;
-    Point p1(250,250), p2(200, 0);
+    Point p1(250,250), p2(200, 0), p3(200, SCREEN_HEIGHT);
     Guppy g1(p1);
     Food f1(p2);
+    Snail s1(p3);
 
     aqu.add(g1);
     aqu.add(f1);
+    aqu.add(s1);
 
     double prevtime = time_since_start();
 

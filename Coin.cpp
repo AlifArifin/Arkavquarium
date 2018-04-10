@@ -3,8 +3,8 @@
 
 #include <math.h>
 
-const int Coin::speed_coin = 30;
-const int Coin::radius_coin = 20;
+const int Coin::speed_coin = 20;
+const int Coin::radius_coin = 15;
 const string Coin::image = "Coin.png";
 
 /*Sekawan*/

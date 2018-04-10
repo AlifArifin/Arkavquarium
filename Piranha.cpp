@@ -16,13 +16,13 @@ Piranha::Piranha(Point _p) : Fish("piranha", value_piranha, _p) {
 
 int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
     count_move += time;
-    if (count_move >= hunger_time) {
+    if (count_move >= hunger_time && !hungry) {
         hungry = true;
+    } else if (count_move >= dead_time) {
+        return -2;
     } else if (count_move >= change_move && !hungry) {
         count_move = 0;
         setChange_Move();
-    } else if (count_move >= dead_time) {
-        return -2;
     }
 
     if (hungry && !_l.isEmpty()) {
@@ -52,11 +52,9 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
         }
     } else {
         double rad = PI/180 * direction;
-
-        setDirection(direction);    
         
         position.setX(position.getX() + speed_fish * cos(rad) * time);
-        position.setY(position.getX() + speed_fish * sin(rad) * time);
+        position.setY(position.getY() + speed_fish * sin(rad) * time);
         
         if (position.isOutLeft(m, radius_piranha)) {
             position.setX(radius_piranha);
@@ -77,7 +75,9 @@ int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
             count_move = 0;
             direction = rand() % 180 + 180;
         }
-
+        
+        setDirection(direction);    
+        
         return -1;
     }
 }    

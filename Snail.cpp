@@ -3,8 +3,8 @@
 
 using namespace std;
 
-const int Snail::speed_snail = 20;
-const int Snail::radius_snail = 40;
+const int Snail::speed_snail = 15;
+const int Snail::radius_snail = 22;
 const string Snail::image_snail[2] = {"LSnail.png", "RSnail.png"};
 
 /*Sekawan*/
@@ -22,6 +22,7 @@ int Snail::getSpeed_Snail(){
 /*Method*/
 int Snail::move(const ListObj<Coin>& _l, double time){
     //untuk pergerakan snail
+    position.setY(480 - radius_snail - 1);
     if(!_l.isEmpty()){
         double closest_coin = _l.get(0).getPosition().getY();
         int idx_coin = 0;

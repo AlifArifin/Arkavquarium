@@ -10,7 +10,7 @@ const int Guppy::coin_time = 5;
 const int Guppy::grow_time = 2;
 const int Guppy::value_guppy = 100;  
 const int Guppy::value_coin = 10;
-const int Guppy::radius_guppy = 22;
+const int Guppy::radius_guppy = 15;
 const string Guppy::image_guppy[3][4] = { {"LGuppy1.png", "RGuppy1.png", "LHungryGuppy1.png", "RHungryGuppy1.png"}, 
                                           {"LGuppy2.png", "RGuppy2.png", "LHungryGuppy2.png", "RHungryGuppy2.png"}, 
                                           {"LGuppy3.png", "RGuppy3.png", "LHungryGuppy3.png", "RHungryGuppy3.png"} };
@@ -40,14 +40,14 @@ void Guppy::setPhase(int _p) {
 int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
     count_move += time;
 
-    if (count_move >= hunger_time) {
+    if (count_move >= hunger_time && !hungry) {
         hungry = true;
+    } else if (count_move >= dead_time) {
+        return -2;
     } else if (count_move >= change_move && !hungry) {
         count_move = 0;
         setChange_Move();
-    } else if (count_move >= dead_time) {
-        return -2;
-    }
+    } 
 
     if (hungry && !_l.isEmpty()) {
         double closest_food = _l.get(0).getPosition().distanceTo(position);
@@ -66,20 +66,21 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
         
         setDirection(a * 180.0/PI);
 
+        draw_text(to_string(direction), 18, 15, 30, 0, 0, 0);
+
         if (g.getPosition().isInRadius(position, radius_guppy * phase + Food::getRadius_Food())) {
             position = g.getPosition();
             count_move = 0;
             return _l.find(g);
         } else {
             position.setX(position.getX() + speed_fish * cos(a) * time);
-            position.setY(position.getX() + speed_fish * sin(a) * time);
+            position.setY(position.getY() + speed_fish * sin(a) * time);
             return -1;
         }
     } else {
         double rad = PI/180 * direction;
-        draw_text(to_string(direction), 18, 10, 30, 0, 0, 0);
-
         setDirection(direction);
+        draw_text(to_string(direction), 18, 15, 30, 0, 0, 0);
 
         position.setX(position.getX() + speed_fish * cos(rad) * time);
         position.setY(position.getY() + speed_fish * sin(rad) * time);
@@ -89,24 +90,22 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
 
         if (position.isOutLeft(m, radius_guppy * phase)) {
             position.setX(radius_guppy * phase);
-            count_move = 0;
             direction = (rand() % 180 - 90 ) % 360;
         } else if (position.isOutRight(m, radius_guppy * phase)) {
             position.setX(m.getColumn() - 1 - radius_guppy * phase);
-            count_move = 0;
             direction = rand() % 180 + 90;
         }
         
         if (position.isOutTop(m, radius_guppy * phase)) {
             position.setY(radius_guppy * phase);
-            count_move = 0;
             direction = rand() % 180;
         } else if (position.isOutBottom(m, radius_guppy * phase)) {
             position.setY(m.getRow() - 1 - radius_guppy * phase);
-            count_move = 0;
             direction = rand() % 180 + 180;
         }
 
+        setDirection(direction);
+        
         return -1;
     }
 }   

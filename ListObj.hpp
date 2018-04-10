@@ -176,21 +176,21 @@ class ListObj {
         //asumsi elemen ada di dalam list
         void remove(const T& _obj) {
             if (_obj == first->getInfo()) {
-                T o = deleteFirst();
+                deleteFirst();
             } else if (_obj == last->getInfo()) {
-                T o = deleteLast();
+                deleteLast();
             } else {
-                T o = deleteMid(_obj);
+                deleteMid(_obj);
             }
         }
 
-        T& removeIdx(int id) {
+        void removeIdx(int id) {
             Obj<T> *temp = first;
             Obj<T> *prev = NULL;
 
             if (id == 0) {
-                T o = deleteFirst();
-                return o;
+                deleteFirst();
+                cout << "del6" << endl;
             } else {
                 while (temp->getNext() != NULL && id > 1) {
                     temp = temp->getNext();
@@ -202,14 +202,11 @@ class ListObj {
                     temp->setNext(rem->getNext());
                     T o = rem->getInfo();
                     delete rem;
-                    return o;
                 }
-                T o = first-> info;
-                return o;
             }
         }
         
-        T& deleteMid(const T& _obj) {
+        void deleteMid(const T& _obj) {
             bool found = false;
             Obj<T> *current = first;
             Obj<T> *previous = NULL;
@@ -222,21 +219,17 @@ class ListObj {
                 }
             } 
             previous -> next = current -> next;
-            T o = current->getInfo();
             delete current;
-
-            return o;
         } 
 
-        T& deleteFirst() {
-            T o = first->getInfo();
+        void deleteFirst() {
             Obj<T> *temp = first;
             first = first -> next;
             delete temp;
-            return o;
+            cout << "del5" << endl;
         }
 
-        T& deleteLast() {
+        void deleteLast() {
             Obj<T> *current = first;
             Obj<T> *previous = NULL;
             current = first;
@@ -247,12 +240,9 @@ class ListObj {
             //current adalah last element
             last = previous;
             previous -> next = NULL;
-            T o = current->getInfo();
             delete current;
-            return o;
         }
 
-        
         //mengembalikan elemen dengan tipe T pada indeks sesuai parameter
         //asumsi indeks posisi selalu valid
         T& get(int pos) const {
