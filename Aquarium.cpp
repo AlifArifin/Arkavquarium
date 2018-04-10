@@ -47,13 +47,26 @@ void Aquarium::showAll(){
 void Aquarium::moveAll(double time){
 	
 	for (int i = 0; i < list_food.size(); i++) {
-		list_food.get(i).move(aquarium_matrix, time);
+		bool bottom = list_food.get(i).move(aquarium_matrix, time);
+
+		if (bottom) {
+			Food f = list_food.removeIdx(i);
+
+			f.~Food();
+			
+			i--;
+		}
 	}
 	
 	for (int i = 0; i < list_guppy.size(); i++) {
 		int idx = list_guppy.get(i).move(list_food, aquarium_matrix, time);
 
-		if (idx != -1) {
+		if (idx == -2) {
+			Guppy g = list_guppy.removeIdx(i);
+
+			g.~Guppy();
+			i--;
+		} else if (idx != -1) {
 			Food f = list_food.removeIdx(idx);
 
 			list_guppy.get(i).eat();
