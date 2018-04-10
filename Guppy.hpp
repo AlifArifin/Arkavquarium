@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Fish.hpp"
 #include "ListObj.hpp"
+#include <cstring>
 #include "Food.hpp"
 using namespace std;
 
@@ -39,7 +40,7 @@ class Guppy : public Fish{
         const static int value_coin; //value coin yang dihasilkan guppy
         const static int grow_time;
         const static int radius_guppy;
-        const static string array_image[3][4];
+        const static string image_guppy[3][4];
         string image;
 };
 

@@ -5,11 +5,11 @@ using namespace std;
 
 const int Snail::speed_snail = 20;
 const int Snail::radius_snail = 40;
-const string Snail::array_image = {"LSnail.png", "RSnail.png"};
+const string Snail::image_snail[2] = {"LSnail.png", "RSnail.png"};
 
 /*Sekawan*/
 Snail::Snail(Point p) : Summonable("snail", speed_snail, p){ 
-    image = array_image[0];
+    image = image_snail[0];
 }
 
 /*Getter*/
@@ -68,10 +68,10 @@ string Snail::getImage() const {
 void Snail::setDirection(int d) {
     if (d >= 90 && d <= 270) {
         direction = 180;
-        image = array_image[0];
+        image = image_snail[0];
     } else {
         direction = 0;
-        image = array_image[1];
+        image = image_snail[1];
     }
 }
 

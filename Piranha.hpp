@@ -31,7 +31,7 @@ class Piranha : public Fish{
     private:
         static const int value_piranha; //harga ikan piranha
         static const int radius_piranha;
-        static const string array_image[4];
+        static const string image_piranha[4];
         string image;
 };
 

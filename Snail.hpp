@@ -30,7 +30,7 @@ class Snail : public Summonable{
     private:
         static const int speed_snail; //mencatat kecepatan untuk Snail
         static const int radius_snail;
-        static const string array_image[2];
+        static const string image_snail[2];
         string image;
 };
 

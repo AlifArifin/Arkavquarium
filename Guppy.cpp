@@ -11,13 +11,15 @@ const int Guppy::grow_time = 2;
 const int Guppy::value_guppy = 100;  
 const int Guppy::value_coin = 10;
 const int Guppy::radius_guppy = 22;
-const string Guppy::array_image = {{"LGuppy1.png", "RGuppy1.png"}, {"LGuppy2.png", "RGuppy2.png"}, {"LGuppy3.png", "RGuppy3.png"}};
+const string Guppy::image_guppy[3][4] = { {"LGuppy1.png", "RGuppy1.png", "LHungryGuppy1.png", "RHungryGuppy1.png"}, 
+                                          {"LGuppy2.png", "RGuppy2.png", "LHungryGuppy2.png", "RHungryGuppy2.png"}, 
+                                          {"LGuppy3.png", "RGuppy3.png", "LHungryGuppy3.png", "RHungryGuppy3.png"} };
 
 /*Sekawan*/
 Guppy::Guppy(Point _p) : Fish("guppy", value_guppy, _p) {
     phase = 1;
     food_count = 0;
-    image = array_image[0][0];
+    image = image_guppy[0][0];
 }
 
 /*Getter*/
@@ -150,12 +152,16 @@ int Guppy::getRadius_Guppy() {
 void Guppy::setDirection(int d) {
     if (!hungry) {
         if (d >= 90 && d <= 270) {
-            image = array_image[phase - 1][0];
+            image = image_guppy[phase - 1][0];
         } else {
-            image = array_image[phase - 1][1];
+            image = image_guppy[phase - 1][1];
         }
     } else {
-
+        if (d >= 90 && d <= 270) {
+            image = image_guppy[phase - 1][2];
+        } else {
+            image = image_guppy[phase - 1][3];
+        }
     }
 
     direction = d;

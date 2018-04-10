@@ -2,6 +2,8 @@
 #include "Point.hpp"
 #include "Summonable.hpp"
 #include "Matrix.hpp"
+#include <time.h>
+#include <cstdlib>
 
 using namespace std;
 

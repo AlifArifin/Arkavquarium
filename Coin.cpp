@@ -5,7 +5,7 @@
 
 const int Coin::speed_coin = 30;
 const int Coin::radius_coin = 20;
-const string Coin::image = "Coin.png"
+const string Coin::image = "Coin.png";
 
 /*Sekawan*/
 Coin::Coin(Point P, int _val) : Summonable("coin", speed_coin, P), value(_val) {

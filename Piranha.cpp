@@ -8,10 +8,10 @@ using namespace std;
 
 const int Piranha::value_piranha = 300;
 const int Piranha::radius_piranha = 35;
-const string Piranha::array_image = {"LPiranha.png", "RPiranha.png"};
+const string Piranha::image_piranha[4] = {"LPiranha.png", "RPiranha.png", "LHungryPiranha.png", "RHungryPiranha.png"};
 
 Piranha::Piranha(Point _p) : Fish("piranha", value_piranha, _p) {
-    image = array_image[0];
+    image = image_piranha[0];
 }
 
 int Piranha::move(const ListObj<Guppy>& _l, const Matrix& m, double time) {
@@ -110,12 +110,19 @@ int Piranha::getRadius_Piranha() {
 }
 
 void Piranha::setDirection(int d) {
-    if (d >= 90 && d <= 270) {
-        image = array_image[0];
+    if (!hungry) {
+        if (d >= 90 && d <= 270) {
+            image = image_piranha[0];
+        } else {
+            image = image_piranha[1];
+        }
     } else {
-        image = array_image[1];
+        if (d >= 90 && d <= 270) {
+            image = image_piranha[2];
+        } else {
+            image = image_piranha[3];
+        }
     }
-
     direction = d;
 }
 
