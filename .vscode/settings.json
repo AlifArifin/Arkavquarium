@@ -37,6 +37,7 @@
         "memory": "cpp",
         "tuple": "cpp",
         "chrono": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "array": "cpp"
     }
 }

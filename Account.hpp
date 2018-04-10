@@ -19,6 +19,7 @@ class Account{
 		
 		//getter
 		static int getMoney();
+		int getEgg_Phase();
 
 		//setter
 		static void setMoney(int);

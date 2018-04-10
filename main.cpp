@@ -57,7 +57,7 @@ int main( int argc, char* args[] )
         // Gerakkan ikan selama tombol panah ditekan
         // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
         // konstan pada komputer yang berbeda.
-        for (auto key : get_pressed_keys()) {
+        for (auto key : get_tapped_keys()) {
             switch (key) {
             case SDLK_1:    //beli guppy
                 if (aqu.getAccount().buyGuppy()) {
@@ -103,12 +103,20 @@ int main( int argc, char* args[] )
             frames_passed = 0;
         }
 
+        //mengecek kondisi menang dan kalah
+        if (aqu.getAccount().win()) {
+            running = false;
+        }
+
         // Gambar ikan di posisi yang tepat.
         clear_screen();
         draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        //draw_text(to_string(sec_since_last), 18, 10, 30, 0, 0, 0);
         
+        // Menampilkan uang
+        draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 500, 30, 0, 0, 0);
+        draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 60, 0, 0, 0);
+
         aqu.moveAll(sec_since_last);
         aqu.showAll();
 

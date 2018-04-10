@@ -3,11 +3,12 @@
 #include "Piranha.hpp"
 #include "Food.hpp"
 
-int Account::money = 0;
+int Account::money = 500;
 const int Account::egg_price = 1000;
 
 //constructor
 Account::Account() {
+    egg_phase = 0;
 }
 //getter
 int Account::getMoney() {
@@ -53,8 +54,17 @@ bool Account::buyFood() {
 bool Account::buyEgg() {
     if (money >= egg_price) {
         money -= egg_price;
+        egg_phase++;
         return true;
     } else {
         return false;
     }
+}
+
+bool Account::win() {
+    return egg_phase == 3;
+}
+
+int Account::getEgg_Phase() {
+    return egg_phase;
 }
