@@ -111,6 +111,7 @@ class ListObj {
                     current = current -> next;
                 }
             }
+            return *this;
         }
 
         /*Getter*/
@@ -203,6 +204,8 @@ class ListObj {
                     delete rem;
                     return o;
                 }
+                T o = first-> info;
+                return o;
             }
         }
         

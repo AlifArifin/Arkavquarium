@@ -31,7 +31,9 @@ bool Account::buyPiranha() {
     return money >= Piranha::getValue_Piranha();
 }
 
-bool Account::buyFood() {}
+bool Account::buyFood() {
+    return money >= Food::getValue_Food();
+}
 
 bool Account::buyEgg() {
     return money >= egg_price;
