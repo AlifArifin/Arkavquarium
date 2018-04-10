@@ -30,6 +30,16 @@ class Point {
         bool operator==(const Point&) const;
         bool isInRadius(const Point&, int);
 
+        friend ostream& operator<< (ostream& os, const Point& P) {
+            os << "(" << P.x << "," << P.y << ")";
+            return os;
+        }
+
+        friend istream& operator>> (istream& is, Point& P) {
+            is >> P.x >> P.y;
+            return is;
+        }
+
     private:
         double x, y;
 };
