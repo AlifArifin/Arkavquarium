@@ -68,9 +68,6 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
         int dir = (int (a * 180.0/PI) % 360 + 360) % 360;
         setDirection(dir);
 
-        draw_text(to_string(dir), 18, 15, 300, 0, 0, 0);
-        draw_text(to_string(count_move) + " " + to_string(change_move), 18, 15, 30, 0, 0, 0);
-
         if (g.getPosition().isInRadius(position, radius_guppy * phase + Food::getRadius_Food())) {
             count_move = 0;
             return _l.find(g);
@@ -82,13 +79,9 @@ int Guppy::move(const ListObj<Food>& _l, const Matrix& m, double time) {
     } else {
         double rad = PI/180 * direction;
         setDirection(direction);
-        draw_text(to_string(count_move) + " " + to_string(change_move), 18, 15, 30, 0, 0, 0);
         
         position.setX(position.getX() + speed_fish * cos(rad) * time);
         position.setY(position.getY() + speed_fish * sin(rad) * time);
-
-        draw_text(to_string(position.getX()), 18, 15, 60, 0, 0, 0);
-        draw_text(to_string(position.getY()), 18, 15, 90, 0, 0, 0);
 
         if (position.isOutLeft(m, radius_guppy * phase)) {
             position.setX(radius_guppy * phase);

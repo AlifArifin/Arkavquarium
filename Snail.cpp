@@ -23,7 +23,6 @@ int Snail::getSpeed_Snail(){
 int Snail::move(const ListObj<Coin>& _l, double time){
     //untuk pergerakan snail
     position.setY(480 - radius_snail - 1);
-    draw_text(to_string(position.getX()) + " " + to_string(position.getY()), 18, 250, 280, 0, 0, 0);
     if(!_l.isEmpty()){
         Point closest_coin = _l.get(0).getPosition();
         int idx_coin = 0;
@@ -53,8 +52,7 @@ int Snail::move(const ListObj<Coin>& _l, double time){
         } else if (int(position.getX()) == int(c.getPosition().getX())) {
             return -1;
         } else {
-            draw_text(to_string(speed_snail) + " " + to_string(_l.size()) + " " + to_string(time), 18, 250, 250, 0, 0, 0);
-            position.setX(position.getX() + speed_snail * cos(dir * PI/180) * time);
+            position.setX(position.getX() + speed_snail * cos(direction * PI/180) * time);
             return -1;
         }
     } else {
