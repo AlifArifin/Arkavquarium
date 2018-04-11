@@ -107,11 +107,12 @@ int main( int argc, char* args[] )
                     delay = 0.25;
                     int x, y, idx;
                     SDL_GetMouseState(&x, &y);
-                    Point ptemp(x, y);
+                    Point ptemp(x, 0);
+                    Point p1(x, y);
                     bool find = false;
                     
                     for (int i = 0; i < aqu.getList_Coin().size(); i++) {
-                        if (ptemp.isInRadius(aqu.getList_Coin().get(i).getPosition(), Coin::getRadius_Coin())) {
+                        if (p1.isInRadius(aqu.getList_Coin().get(i).getPosition(), Coin::getRadius_Coin())) {
                             find = true;
                             aqu.removeCoin(i);
                             break;
