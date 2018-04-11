@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-Aquarium::Aquarium() : list_guppy(), list_coin(), list_food(), list_piranha(), list_snail(), player(), aquarium_matrix(){}
+Aquarium::Aquarium(){}
 
 ListObj<Guppy> Aquarium::getList_Guppy() const{return list_guppy;}
 ListObj<Piranha> Aquarium::getList_Piranha() const{return list_piranha;}

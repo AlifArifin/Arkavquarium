@@ -24,7 +24,6 @@ Matrix::~Matrix(){
 		delete [] data[i];
 	}
 	delete [] data;
-    cout << "-- Game Over --" << endl; 
 }
 
 int Matrix::getRow(){

@@ -85,7 +85,6 @@ class ListObj {
         }
 
         ListObj& operator=(const ListObj& L) {
-            ListObj& copyL (*this);
             //delete this list
             Obj<T>* current = first;
             while (current != NULL) {
@@ -189,7 +188,6 @@ class ListObj {
 
             if (id == 0) {
                 deleteFirst();
-                cout << "del6" << endl;
             } else {
                 while (temp->getNext() != NULL && id > 1) {
                     temp = temp->getNext();
@@ -225,7 +223,6 @@ class ListObj {
             Obj<T> *temp = first;
             first = first -> next;
             delete temp;
-            cout << "del5" << endl;
         }
 
         void deleteLast() {

@@ -10,7 +10,7 @@ using namespace std;
 class Fish : public Summonable{
     public:
         /*Sekawan*/
-        Fish(string, int, Point); //constructor jenis value
+        Fish(int, Point); //constructor jenis value
         ~Fish(); //destructor dibuat untuk animasi mati biar dramatis
         
         /*Getter*/

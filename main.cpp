@@ -153,8 +153,11 @@ int main( int argc, char* args[] )
         draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         
         // Menampilkan uang
-        draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 500, 10, 0, 0, 0);
-        draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 40, 0, 0, 0);
+        draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 475, 10,230, 126, 34);
+        draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()) + "/3", 18, 475, 40,230, 126, 34);
+        draw_text("Press '2' to buy Piranha (300)", 12, 475, 85,230, 126, 34);
+        draw_text("Press '1' to buy Guppy (100)", 12, 475, 70,230, 126, 34);
+        draw_text("Press '4' to buy Egg (1000)", 12, 475, 100,230, 126, 34);
 
         aqu.moveAll(sec_since_last);
         aqu.showAll();

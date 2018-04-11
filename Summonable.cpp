@@ -10,8 +10,9 @@ using namespace std;
 const double Summonable::PI = 3.14159265;
 
 /*Sekawan*/
-Summonable::Summonable(int _s, Point _p) : speed(_s), position(_p) {
+Summonable::Summonable(int _s, Point _p) : position(_p) {
     //menerima id, jenis, speed, dan lokasi spawn
+    speed = _s;
     direction = rand() % 360;         
 }
 
