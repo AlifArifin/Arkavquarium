@@ -8,7 +8,7 @@ const int Food::radius_food = 10;
 const string Food::image = "Food.png";
 
 /*Sekawan*/
-Food::Food(Point P) : Summonable("food", speed_food, P) {
+Food::Food(Point P) : Summonable(speed_food, P) {
     direction = 270;
 }
 

@@ -8,7 +8,7 @@ const int Coin::radius_coin = 15;
 const string Coin::image = "Coin.png";
 
 /*Sekawan*/
-Coin::Coin(Point P, int _val) : Summonable("coin", speed_coin, P), value(_val) {
+Coin::Coin(Point P, int _val) : Summonable(speed_coin, P), value(_val) {
     direction = 270;
 }
 

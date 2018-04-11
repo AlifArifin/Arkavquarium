@@ -10,7 +10,7 @@ using namespace std;
 class Summonable {
     public:
         /*Sekawan*/
-        Summonable(string, int, Point);    //menerima jenis, speed, dan lokasi spawn
+        Summonable(int, Point);    //menerima jenis, speed, dan lokasi spawn
         virtual ~Summonable();
 
         /*Getter*/
@@ -29,7 +29,6 @@ class Summonable {
         Point position; //mencatat posisi dari summonable pada point
         int direction;  //direction harus berada pada angka 0 <= direction <= 360        
         int speed; //kecepatan dari Summonable
-        string jenis; //menunjukkan jenis dari summonable
         static const double PI;
 };
 

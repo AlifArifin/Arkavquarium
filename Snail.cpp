@@ -8,7 +8,7 @@ const int Snail::radius_snail = 22;
 const string Snail::image_snail[2] = {"LSnail.png", "RSnail.png"};
 
 /*Sekawan*/
-Snail::Snail(Point p) : Summonable("snail", speed_snail, p){ 
+Snail::Snail(Point p) : Summonable(speed_snail, p){ 
     image = image_snail[0];
 }
 

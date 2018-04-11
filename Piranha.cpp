@@ -10,7 +10,7 @@ const int Piranha::value_piranha = 300;
 const int Piranha::radius_piranha = 35;
 const string Piranha::image_piranha[4] = {"LPiranha.png", "RPiranha.png", "LHungryPiranha.png", "RHungryPiranha.png"};
 
-Piranha::Piranha(Point _p) : Fish("piranha", value_piranha, _p) {
+Piranha::Piranha(Point _p) : Fish(value_piranha, _p) {
     image = image_piranha[0];
 }
 

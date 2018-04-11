@@ -186,7 +186,6 @@ class ListObj {
 
         void removeIdx(int id) {
             Obj<T> *temp = first;
-            Obj<T> *prev = NULL;
 
             if (id == 0) {
                 deleteFirst();

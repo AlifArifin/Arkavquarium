@@ -16,7 +16,7 @@ const string Guppy::image_guppy[3][4] = { {"LGuppy1.png", "RGuppy1.png", "LHungr
                                           {"LGuppy3.png", "RGuppy3.png", "LHungryGuppy3.png", "RHungryGuppy3.png"} };
 
 /*Sekawan*/
-Guppy::Guppy(Point _p) : Fish("guppy", value_guppy, _p) {
+Guppy::Guppy(Point _p) : Fish(value_guppy, _p) {
     phase = 1;
     food_count = 0;
     image = image_guppy[0][0];
