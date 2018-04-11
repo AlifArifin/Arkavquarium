@@ -44,9 +44,6 @@ int main( int argc, char* args[] )
 
     double prevtime = time_since_start();
 
-    //SDL Event struct
-    SDL_Event event; 
-
     while (running) {
         srand(time(NULL));
         double now = time_since_start();
@@ -105,7 +102,7 @@ int main( int argc, char* args[] )
                 switch (key) {
                 case SDL_BUTTON(SDL_BUTTON_LEFT) :
                     delay = 0.25;
-                    int x, y, idx;
+                    int x, y;
                     SDL_GetMouseState(&x, &y);
                     Point ptemp(x, 0);
                     Point p1(x, y);
