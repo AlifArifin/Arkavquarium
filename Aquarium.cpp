@@ -30,25 +30,24 @@ void Aquarium::del(Snail &snail){list_snail.remove(snail);} //menghapus Snail da
 void Aquarium::del(Coin &coin){list_coin.remove(coin);} //menghapus Coin dari dalam aquarium
 void Aquarium::del(Food &food){list_food.remove(food);} //menghapus Food dari dalam aquarium
 void Aquarium::showAll(){
-	for (int i = 0; i < list_food.size(); i++) {
-		draw_image(list_food.get(i).getImage(), list_food.get(i).getPosition().getX(), list_food.get(i).getPosition().getY());
-	}
-	
-	for (int i = 0; i < list_guppy.size(); i++) {
-		draw_image(list_guppy.get(i).getImage(), list_guppy.get(i).getPosition().getX(), list_guppy.get(i).getPosition().getY());
-        draw_text(to_string(list_guppy.get(i).getPosition().getX()), 18, 10, 120, 0, 0, 0);
+	for (int i = 0; i < list_snail.size(); i++) {
+		draw_image(list_snail.get(i).getImage(), list_snail.get(i).getPosition().getX(), list_snail.get(i).getPosition().getY());
 	}
 	
 	for (int i = 0; i < list_piranha.size(); i++) {
 		draw_image(list_piranha.get(i).getImage(), list_piranha.get(i).getPosition().getX(), list_piranha.get(i).getPosition().getY());
 	}
 	
-	for (int i = 0; i < list_coin.size(); i++) {
-		draw_image(list_coin.get(i).getImage(), list_coin.get(i).getPosition().getX(), list_coin.get(i).getPosition().getY());
+	for (int i = 0; i < list_guppy.size(); i++) {
+		draw_image(list_guppy.get(i).getImage(), list_guppy.get(i).getPosition().getX(), list_guppy.get(i).getPosition().getY());
 	}
 
-	for (int i = 0; i < list_snail.size(); i++) {
-		draw_image(list_snail.get(i).getImage(), list_snail.get(i).getPosition().getX(), list_snail.get(i).getPosition().getY());
+	for (int i = 0; i < list_food.size(); i++) {
+		draw_image(list_food.get(i).getImage(), list_food.get(i).getPosition().getX(), list_food.get(i).getPosition().getY());
+	}
+	
+	for (int i = 0; i < list_coin.size(); i++) {
+		draw_image(list_coin.get(i).getImage(), list_coin.get(i).getPosition().getX(), list_coin.get(i).getPosition().getY());
 	}
 }//menampilkan semua summonable yang ada pada aquarium ??GIMANA
 void Aquarium::moveAll(double time){
@@ -120,5 +119,12 @@ Account Aquarium::getAccount() const {
 
 bool Aquarium::lose() {
 	return list_guppy.isEmpty() && list_piranha.isEmpty() && list_coin.isEmpty() && Account::getMoney() < Guppy::getValue_Guppy();
+}
+
+void Aquarium::removeCoin(int idx) {
+	Coin c = list_coin.get(idx);
+	list_coin.removeIdx(idx);
+
+	Account::addMoney(c.getValue());
 }
 

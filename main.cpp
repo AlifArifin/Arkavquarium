@@ -27,7 +27,8 @@ int main( int argc, char* args[] )
     std::string fps_text = "FPS: 0";
 
     bool running = true;
-
+    bool quit = false;
+    double delay = 0;
     // Inisiasi game
     srand(time(NULL));
     
@@ -51,16 +52,19 @@ int main( int argc, char* args[] )
         double now = time_since_start();
         double sec_since_last = now - prevtime;
         prevtime = now;
+        delay -= sec_since_last;
 
         handle_input();
         if (quit_pressed()) {
             running = false;
+            quit = true;
         }
 
         // Gerakkan ikan selama tombol panah ditekan
         // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
         // konstan pada komputer yang berbeda.
         for (auto key : get_tapped_keys()) {
+            srand(time(NULL));
             switch (key) {
             case SDLK_1:    //beli guppy
                 if (aqu.getAccount().buyGuppy()) {
@@ -88,8 +92,41 @@ int main( int argc, char* args[] )
                 } else {
 
                 }
+                break;
             case SDLK_4:
                 if (aqu.getAccount().buyEgg()) {
+                }
+                break;
+            }
+        }
+
+        if (delay < 0) {
+            for (auto key : get_clicked_mouse()) {
+                switch (key) {
+                case SDL_BUTTON(SDL_BUTTON_LEFT) :
+                    delay = 0.25;
+                    int x, y, idx;
+                    SDL_GetMouseState(&x, &y);
+                    Point ptemp(x, 0);
+                    Point p1(x, y);
+                    bool find = false;
+                    
+                    for (int i = 0; i < aqu.getList_Coin().size(); i++) {
+                        if (p1.isInRadius(aqu.getList_Coin().get(i).getPosition(), Coin::getRadius_Coin())) {
+                            find = true;
+                            aqu.removeCoin(i);
+                            break;
+                        }
+                    }
+
+                    if (!find) {
+                        if (aqu.getAccount().buyFood()) {
+                            Food ftemp(ptemp);
+                            aqu.add(ftemp);
+                        }
+                    }
+
+                    break;
                 }
             }
         }
@@ -108,12 +145,10 @@ int main( int argc, char* args[] )
         //mengecek kondisi menang dan kalah
         if (aqu.getAccount().win()) {
             running = false;
-            draw_image("win.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         }
 
         if (aqu.lose()) {
             running = false;
-            draw_image("lose.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
         } 
 
         // Gambar ikan di posisi yang tepat.
@@ -123,7 +158,6 @@ int main( int argc, char* args[] )
         // Menampilkan uang
         draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 500, 10, 0, 0, 0);
         draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 40, 0, 0, 0);
-        draw_text(to_string(aqu.getAccount().getEgg_Phase()), 18, 500, 70, 0, 0, 0);
 
         aqu.moveAll(sec_since_last);
         aqu.showAll();
@@ -131,8 +165,37 @@ int main( int argc, char* args[] )
         update_screen();
     }
 
-    clear_screen();
+    running = true;
 
+    if (!quit) {
+        while (running) {
+            handle_input();
+            if (quit_pressed()) {
+                running = false;
+            }
+            for (auto key : get_tapped_keys()) {
+                switch (key) {
+                case SDLK_ESCAPE :
+                    running = false;
+                }
+            }
+
+            clear_screen();
+            
+            draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+
+            aqu.showAll();
+                    
+            if (aqu.lose()) {
+                draw_image("lose.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+            } else if (aqu.getAccount().win()) {
+                draw_image("win.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+            }
+            
+            update_screen();
+        }
+    }
+    
     close();
 
     return 0;
