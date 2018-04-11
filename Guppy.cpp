@@ -6,10 +6,10 @@
 
 using namespace std;
 
-const int Guppy::coin_time = 5;
+const int Guppy::coin_time = 8;
 const int Guppy::grow_time = 2;
 const int Guppy::value_guppy = 100;  
-const int Guppy::value_coin = 10;
+const int Guppy::value_coin = 40;
 const int Guppy::radius_guppy = 15;
 const string Guppy::image_guppy[3][4] = { {"LGuppy1.png", "RGuppy1.png", "LHungryGuppy1.png", "RHungryGuppy1.png"}, 
                                           {"LGuppy2.png", "RGuppy2.png", "LHungryGuppy2.png", "RHungryGuppy2.png"}, 

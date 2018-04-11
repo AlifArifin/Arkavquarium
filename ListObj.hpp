@@ -168,6 +168,7 @@ class ListObj {
             } else {
                 last -> next = temp;
                 last = temp;
+                temp -> next = NULL;
             }
         }
 
@@ -185,20 +186,31 @@ class ListObj {
 
         void removeIdx(int id) {
             Obj<T> *temp = first;
+            int i;
 
             if (id == 0) {
                 deleteFirst();
             } else {
-                while (temp->getNext() != NULL && id > 1) {
-                    temp = temp->getNext();
-                    id--;
+                i = 1;
+                Obj<T> *prev = temp;
+                temp = temp -> next;
+
+                while (id != i && temp != NULL) {
+                    prev = temp;
+                    temp = temp -> next;
+                    i++;
                 }
 
-                if (temp -> getNext() != NULL) {
-                    Obj<T> *rem = temp->getNext();
-                    temp->setNext(rem->getNext());
-                    T o = rem->getInfo();
-                    delete rem;
+                if (temp != NULL) {
+                    if (temp -> next == NULL) {
+                        prev -> next = NULL;
+                        last = prev;
+                    } else {
+                        prev -> next = temp -> next;
+                        temp -> next = NULL;
+                    }
+
+                    delete temp;
                 }
             }
         }
@@ -222,6 +234,9 @@ class ListObj {
         void deleteFirst() {
             Obj<T> *temp = first;
             first = first -> next;
+            if (first == NULL) {
+                last = NULL;
+            }
             delete temp;
         }
 
@@ -235,7 +250,11 @@ class ListObj {
             }
             //current adalah last element
             last = previous;
-            previous -> next = NULL;
+            if (previous != NULL) {
+                previous -> next = NULL;
+            } else {
+                first = NULL;
+            }
             delete current;
         }
 

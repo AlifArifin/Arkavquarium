@@ -81,15 +81,6 @@ int main( int argc, char* args[] )
 
                 }
                 break;
-            case SDLK_3:
-                if (aqu.getAccount().buyFood()) {
-                    Point ptemp(rand() % 640 - 1, rand() % 480 - 1);
-                    Food ftemp(ptemp);
-                    aqu.add(ftemp);
-                } else {
-
-                }
-                break;
             case SDLK_4:
                 if (aqu.getAccount().buyEgg()) {
                 }
