@@ -60,8 +60,6 @@ int Snail::move(const ListObj<Coin>& _l, double time){
     }
 }
 
-void Snail::show(){} //untuk display snail
-
 bool Snail::operator==(const Snail& s) const {
     return s.position == position && s.direction == direction;
 }

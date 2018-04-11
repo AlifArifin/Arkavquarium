@@ -90,10 +90,6 @@ Coin Piranha::dropCoin(const Guppy& _g) {
     return _c;
 }
 
-void Piranha::show() {
-
-}
-
 int Piranha::getValue_Piranha() {
     return value_piranha;
 }

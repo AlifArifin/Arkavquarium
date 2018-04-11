@@ -24,7 +24,6 @@ class Snail : public Summonable{
 
         /*Method*/
         int move(const ListObj<Coin>&, double); //untuk pergerakan snail
-        void show(); //untuk display snail
         bool operator==(const Snail&) const;
 
     private:

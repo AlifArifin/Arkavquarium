@@ -36,8 +36,6 @@ void Coin::move(const Matrix &M, double time) { //untuk pergerakkan koin
     }
 }
 
-void Coin::show() {} //untuk menampilkan koin
-
 bool Coin::operator== (const Coin& c) const {
     return c.value == value && c.position == position && direction == c.direction;
 }

@@ -31,10 +31,6 @@ bool Food::move(const Matrix& m, double time) { //untuk pergerakan food
     }
 }
 
-void Food::show() { //untuk display food
-
-}
-
 bool Food::operator==(const Food& f) const {
     return f.position == position && f.direction == direction;
 }

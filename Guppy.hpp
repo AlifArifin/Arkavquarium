@@ -31,7 +31,6 @@ class Guppy : public Fish{
         int move(const ListObj<Food>&, const Matrix&, double); //untuk pergerakkan Guppy    
         Coin dropCoin(); //untuk menghasilkan koin
         void eat(); //untuk makan
-        void show(); //untuk display guppy
         bool operator==(const Guppy&) const;
     
     private:

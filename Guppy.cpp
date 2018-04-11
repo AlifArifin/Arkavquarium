@@ -123,10 +123,6 @@ void Guppy::eat() {
     }
 }
 
-void Guppy::show() {
-
-}
-
 int Guppy::getFood_Count() const {
     return food_count;
 }

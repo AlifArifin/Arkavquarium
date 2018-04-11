@@ -28,7 +28,6 @@ class Fish : public Summonable{
         void setChange_Move(); //dilakukan secara random
         
         /*Method*/
-        virtual void show() = 0; //untuk makan
         virtual void eat() = 0; //untuk makan 
 
     protected:

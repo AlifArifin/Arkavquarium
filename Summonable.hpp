@@ -22,9 +22,6 @@ class Summonable {
         void setPosition(const Point&);
         void setDirection(int);
 
-        /*Method*/      
-        virtual void show() = 0; //untuk display summonable
-        
     protected:
         Point position; //mencatat posisi dari summonable pada point
         int direction;  //direction harus berada pada angka 0 <= direction <= 360        

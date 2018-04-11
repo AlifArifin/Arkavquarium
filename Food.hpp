@@ -21,7 +21,6 @@ class Food : public Summonable {
 
         /*Method*/
         bool move(const Matrix&, double); //untuk pergerakan food
-        void show(); //untuk display food
         bool operator==(const Food&) const;
 
     private:
