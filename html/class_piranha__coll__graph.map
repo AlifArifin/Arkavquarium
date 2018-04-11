@@ -1,0 +1,5 @@
+<map id="Piranha" name="Piranha">
+<area shape="rect" id="node2" href="$class_fish.html" title="{Fish\n|# hungry\l# count_move\l# change_move\l# value\l# hunger_time\l# dead_time\l# speed_fish\l|+ Fish()\l+ ~Fish()\l+ getHungry()\l+ getCount_Move()\l+ getChange_Move()\l+ getValue()\l+ setHungry()\l+ setCount_Move()\l+ setChange_Move()\l+ eat()\l+ getHunger_Time()\l+ getDead_Time()\l+ getSpeed_Fish()\l}" alt="" coords="10,609,151,951"/>
+<area shape="rect" id="node3" href="$class_summonable.html" title="{Summonable\n|# direction\l# speed\l# PI\l|+ Summonable()\l+ ~Summonable()\l+ getPosition()\l+ getDirection()\l+ getSpeed()\l+ setPosition()\l+ setDirection()\l}" alt="" coords="17,365,144,560"/>
+<area shape="rect" id="node4" href="$class_point.html" title="{Point\n|&#45; x\l&#45; y\l|+ Point()\l+ getX()\l+ getY()\l+ setX()\l+ setY()\l+ operator+()\l+ distanceTo()\l+ isBottom()\l+ isOutBottom()\l+ isOutTop()\l+ isOutRight()\l+ isOutLeft()\l+ patan2()\l+ operator==()\l+ isInRadius()\l}" alt="" coords="23,5,138,303"/>
+</map>

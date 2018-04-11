@@ -1,0 +1,3 @@
+<map id="Snail" name="Snail">
+<area shape="rect" id="node2" href="$class_summonable.html" title="{Summonable\n|# position\l# direction\l# speed\l# PI\l|+ Summonable()\l+ ~Summonable()\l+ getPosition()\l+ getDirection()\l+ getSpeed()\l+ setPosition()\l+ setDirection()\l}" alt="" coords="10,5,137,215"/>
+</map>

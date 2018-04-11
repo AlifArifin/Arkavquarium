@@ -1,0 +1,8 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$oop_8cpp.html#aee8048628ff2b5c026c9e15acdcaacb8" title="init" alt="" coords="166,5,205,32"/>
+<area shape="rect" id="node3" href="$class_account.html#af7f6ee00b42e2977b257d2aabac4c9dc" title="Account::getMoney" alt="" coords="118,56,253,83"/>
+<area shape="rect" id="node4" href="$class_account.html#a073ac86bfdc827dfc4ed0095757a8705" title="Account::win" alt="" coords="137,107,234,133"/>
+<area shape="rect" id="node5" href="$class_account.html#ac443667382de1a00d1f2d1e963c43158" title="Account::buyEgg" alt="" coords="124,157,247,184"/>
+<area shape="rect" id="node6" href="$class_account.html#a95f3a84026ec5dc391c69e7fbb2047da" title="Account::addMoney" alt="" coords="116,208,255,235"/>
+<area shape="rect" id="node7" href="$class_account.html#a4194a42a2a6636f317251741a30eb199" title="Account::getEgg_Phase" alt="" coords="104,259,267,285"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="Guppy" name="Guppy">
+<area shape="rect" id="node2" href="$class_fish.html" title="{Fish\n|# hungry\l# count_move\l# change_move\l# value\l# hunger_time\l# dead_time\l# speed_fish\l|+ Fish()\l+ ~Fish()\l+ getHungry()\l+ getCount_Move()\l+ getChange_Move()\l+ getValue()\l+ setHungry()\l+ setCount_Move()\l+ setChange_Move()\l+ eat()\l+ getHunger_Time()\l+ getDead_Time()\l+ getSpeed_Fish()\l}" alt="" coords="7,263,149,604"/>
+<area shape="rect" id="node3" href="$class_summonable.html" title="{Summonable\n|# position\l# direction\l# speed\l# PI\l|+ Summonable()\l+ ~Summonable()\l+ getPosition()\l+ getDirection()\l+ getSpeed()\l+ setPosition()\l+ setDirection()\l}" alt="" coords="15,5,141,215"/>
+</map>

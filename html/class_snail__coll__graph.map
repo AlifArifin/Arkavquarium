@@ -1,0 +1,4 @@
+<map id="Snail" name="Snail">
+<area shape="rect" id="node2" href="$class_summonable.html" title="{Summonable\n|# direction\l# speed\l# PI\l|+ Summonable()\l+ ~Summonable()\l+ getPosition()\l+ getDirection()\l+ getSpeed()\l+ setPosition()\l+ setDirection()\l}" alt="" coords="10,365,137,560"/>
+<area shape="rect" id="node3" href="$class_point.html" title="{Point\n|&#45; x\l&#45; y\l|+ Point()\l+ getX()\l+ getY()\l+ setX()\l+ setY()\l+ operator+()\l+ distanceTo()\l+ isBottom()\l+ isOutBottom()\l+ isOutTop()\l+ isOutRight()\l+ isOutLeft()\l+ patan2()\l+ operator==()\l+ isInRadius()\l}" alt="" coords="16,5,131,303"/>
+</map>
