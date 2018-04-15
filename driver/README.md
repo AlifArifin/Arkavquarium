@@ -1,7 +1,11 @@
-#How to compile driver
-## in linux
+# Class Driver
 
+## How to compile it
+
+```
 make <name of class>
+```
 
-###example
+```
 make Account
+```
