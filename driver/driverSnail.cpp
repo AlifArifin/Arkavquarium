@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Snail.hpp"
-#include "Point.hpp"
+#include "../src/Snail.hpp"
+#include "../src/Point.hpp"
 
 using namespace std;
 

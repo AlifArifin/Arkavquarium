@@ -1,10 +1,10 @@
 #include <iostream>
-#include "ListObj.hpp"
-#include "Guppy.hpp"
-#include "Piranha.hpp"
-#include "Coin.hpp"
-#include "Food.hpp"
-#include "Point.hpp"
+#include "../src/ListObj.hpp"
+#include "../src/Guppy.hpp"
+#include "../src/Piranha.hpp"
+#include "../src/Coin.hpp"
+#include "../src/Food.hpp"
+#include "../src/Point.hpp"
 
 using namespace std;
 

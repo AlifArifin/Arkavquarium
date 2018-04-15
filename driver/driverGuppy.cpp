@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Guppy.hpp"
-#include "Point.hpp"
+#include "../src/Guppy.hpp"
+#include "../src/Point.hpp"
 
 using namespace std;
 

@@ -1,4 +1,4 @@
-#include "Coin.hpp"
+#include "../src/Coin.hpp"
 #include <iostream>
 
 using namespace std;

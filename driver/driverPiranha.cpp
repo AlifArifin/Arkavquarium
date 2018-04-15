@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Piranha.hpp"
-#include "Point.hpp"
+#include "../src/Piranha.hpp"
+#include "../src/Point.hpp"
 
 using namespace std;
 
