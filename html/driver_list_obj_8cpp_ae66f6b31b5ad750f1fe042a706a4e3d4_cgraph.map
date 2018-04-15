@@ -1,7 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node2" href="$class_list_obj.html#a3fabdf41f69db50704280a7e4af5d7e6" title="ListObj::add" alt="" coords="123,5,215,32"/>
-<area shape="rect" id="node3" href="$class_list_obj.html#a9e54d07a6b691a3fe352d8e5ac809b8c" title="ListObj::size" alt="" coords="121,56,216,83"/>
-<area shape="rect" id="node4" href="$class_list_obj.html#af9fd09dcf779fe06aa1fb5f0250f4652" title="ListObj::find" alt="" coords="123,107,214,133"/>
-<area shape="rect" id="node5" href="$class_list_obj.html#af4312334342a08fc734132dc486f7f6f" title="ListObj::removeIdx" alt="" coords="104,157,233,184"/>
-<area shape="rect" id="node6" href="$class_list_obj.html#ae8c1dde519888f3ea8c8d07067fea5e8" title="ListObj::isEmpty" alt="" coords="109,208,228,235"/>
-</map>

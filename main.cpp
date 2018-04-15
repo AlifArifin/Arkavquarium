@@ -1,26 +1,26 @@
-#include "oop.hpp"
+#include "src/oop.hpp"
 #include <iostream>
 #include <math.h>
 #include <sstream>
 #include <string>
-#include "Aquarium.hpp"
-#include "Matrix.hpp"
-#include "Summonable.hpp"
-#include "Account.hpp"
-#include "Coin.hpp"
-#include "Fish.hpp"
-#include "Guppy.hpp"
-#include "Piranha.hpp"
-#include "ListObj.hpp"
-#include "Point.hpp"
-#include "Snail.hpp"
+#include "src/Aquarium.hpp"
+#include "src/Matrix.hpp"
+#include "src/Summonable.hpp"
+#include "src/Account.hpp"
+#include "src/Coin.hpp"
+#include "src/Fish.hpp"
+#include "src/Guppy.hpp"
+#include "src/Piranha.hpp"
+#include "src/ListObj.hpp"
+#include "src/Point.hpp"
+#include "src/Snail.hpp"
 
 using namespace std;
 
 int main( int argc, char* args[] )
 {
     init();
-
+    
     // Menghitung FPS
     int frames_passed = 0;
     double fpc_start = time_since_start();
@@ -30,13 +30,6 @@ int main( int argc, char* args[] )
     bool quit = false;
     double delay = 0;
     // Inisiasi game
-    
-    /*
-    while (running) {
-
-    }
-    */
-
     running = true;
 
     srand(time(NULL));
@@ -54,6 +47,7 @@ int main( int argc, char* args[] )
 
     while (running) {
         srand(time(NULL));
+        
         double now = time_since_start();
         double sec_since_last = now - prevtime;
         prevtime = now;
@@ -149,10 +143,13 @@ int main( int argc, char* args[] )
 
         // Gambar ikan di posisi yang tepat.
         clear_screen();
-        draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+        
+        aqu.showImage();
         
         // Menampilkan uang
+        
         draw_text("Money : " + to_string(aqu.getAccount().getMoney()), 18, 475, 10,230, 126, 34);
+        
         draw_text("Egg   : " + to_string(aqu.getAccount().getEgg_Phase()) + "/3", 18, 475, 40,230, 126, 34);
         draw_text("Press '2' to buy Piranha (300)", 12, 475, 85,230, 126, 34);
         draw_text("Press '1' to buy Guppy (100)", 12, 475, 70,230, 126, 34);
@@ -160,7 +157,6 @@ int main( int argc, char* args[] )
 
         aqu.moveAll(sec_since_last);
         aqu.showAll();
-
         update_screen();
     }
 
@@ -181,14 +177,14 @@ int main( int argc, char* args[] )
 
             clear_screen();
             
-            draw_image("Aquarium.jpg", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+            aqu.showImage();
 
             aqu.showAll();
                     
             if (aqu.lose()) {
-                draw_image("lose.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+                draw_image("img/lose.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
             } else if (aqu.getAccount().win()) {
-                draw_image("win.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+                draw_image("img/win.png", SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
             }
             
             update_screen();

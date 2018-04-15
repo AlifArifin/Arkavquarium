@@ -1,7 +1,0 @@
-<map id="Coin::move" name="Coin::move">
-<area shape="rect" id="node2" href="$class_point.html#a218ab3144023352b29d5ebbbc0e8e658" title="Point::isBottom" alt="" coords="151,5,263,32"/>
-<area shape="rect" id="node3" href="$class_matrix.html#add8c8037e6901d4e479600bd83c6de89" title="Matrix::getRow" alt="" coords="321,56,431,83"/>
-<area shape="rect" id="node4" href="$class_point.html#a0b2df4a0f4fe4a11b1540d6486da360c" title="Point::setY" alt="" coords="163,107,250,133"/>
-<area shape="rect" id="node5" href="$class_point.html#aa323a12bec85e28ce6575dccec4f8b28" title="Point::getY" alt="" coords="163,157,250,184"/>
-<area shape="rect" id="node6" href="$class_point.html#a837df34efc1bddfbcc81fe32a62ac4b6" title="Point::isOutBottom" alt="" coords="140,208,273,235"/>
-</map>

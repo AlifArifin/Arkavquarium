@@ -1,5 +1,0 @@
-<map id="Fish" name="Fish">
-<area shape="rect" id="node3" href="$class_guppy.html" title="{Guppy\n|&#45; phase\l&#45; food_count\l&#45; image\l&#45; coin_count\l&#45; coin_time\l&#45; value_guppy\l&#45; value_coin\l&#45; grow_time\l&#45; radius_guppy\l&#45; image_guppy\l|+ Guppy()\l+ getPhase()\l+ getFood_Count()\l+ getImage()\l+ getCoin_Count()\l+ setPhase()\l+ setFood_Count()\l+ setDirection()\l+ move()\l+ dropCoin()\l+ eat()\l+ operator==()\l+ getCoin_Time()\l+ getValue_Guppy()\l+ getRadius_Guppy()\l}" alt="" coords="5,652,151,1067"/>
-<area shape="rect" id="node4" href="$class_piranha.html" title="{Piranha\n|&#45; image\l&#45; value_piranha\l&#45; radius_piranha\l&#45; image_piranha\l|+ Piranha()\l+ getImage()\l+ setDirection()\l+ move()\l+ eat()\l+ dropCoin()\l+ operator==()\l+ getValue_Piranha()\l+ getRadius_Piranha()\l}" alt="" coords="175,740,325,979"/>
-<area shape="rect" id="node2" href="$class_summonable.html" title="{Summonable\n|# position\l# direction\l# speed\l# PI\l|+ Summonable()\l+ ~Summonable()\l+ getPosition()\l+ getDirection()\l+ getSpeed()\l+ setPosition()\l+ setDirection()\l}" alt="" coords="100,5,227,215"/>
-</map>
