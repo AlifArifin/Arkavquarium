@@ -1,0 +1,16 @@
+#ignore .exe file
+*.exe
+
+#ignore .vscode file
+*.vscode
+
+#ignore result of makefile
+account
+coin
+food
+guppy
+listobj
+matrix
+piranha
+point
+snail
