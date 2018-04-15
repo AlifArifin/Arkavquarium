@@ -1,2 +1,5 @@
-#ignore .hpp.ghc
-*.hpp.ghc
+#ignore .hpp.gch
+*.hpp.gch
+
+#ignore .vscode
+*.vscode
